@@ -24,7 +24,7 @@ function dontGiveMeFive(start, end) {
     for(let i = Math.abs(start); i <= Math.abs(end); i++) {
         numArr.push(String(i));
     }
-    return numArr.filter(num => !num.startsWith("5"));
+    return numArr.filter(num => !num.startsWith("5")).filter(num => !num.endsWith("5")).length;
 }
 
 console.log(dontGiveMeFive(1, 9));
