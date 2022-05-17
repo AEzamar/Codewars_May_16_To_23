@@ -25,11 +25,9 @@ function dontGiveMeFive(start, end) {
         if(!i.toString().includes('5')) {
             counter++;
         }
-    return counter;
     }
+    return counter;
 }
 
 console.log(dontGiveMeFive(1, 9));
 console.log(dontGiveMeFive(4, 17));
-console.log(dontGiveMeFive(-2, -13));
-////////////////////////////////////////////////////////////////////
