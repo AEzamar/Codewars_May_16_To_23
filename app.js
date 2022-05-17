@@ -20,15 +20,16 @@
 //Return length of array of filtered numbers 
 
 function dontGiveMeFive(start, end) {
-    const numArr = [];
-    for(let i = Math.abs(start); i <= Math.abs(end); i++) {
-        numArr.push(String(i));
+    let counter = 0;
+    for(let i = start; i <= end; i++) {
+        if(!i.toString().includes('5')) {
+            counter++;
+        }
+    return counter;
     }
-    return numArr.filter(num => !num.startsWith("5")).filter(num => !num.endsWith("5")).length;
 }
 
 console.log(dontGiveMeFive(1, 9));
 console.log(dontGiveMeFive(4, 17));
 console.log(dontGiveMeFive(-2, -13));
-
-console.log("15".endsWith("5"));
+////////////////////////////////////////////////////////////////////
