@@ -12,15 +12,21 @@
 //spinWords("This is a test"), "This is a test");
 
 //Pseudo-code:
-//
+//Split string into words
+//iterate over arrays of words
+//if word's length is 5 or more reverse the order of the letters
 
 function spinWords(string) {
   const stringArr = string.split(" ");
-  for(let i = 0; i < stringArr.length; i++) {
-    
+  const charArr = stringArr.map(wordArr => wordArr.split(""));
+  for(let i = 0; i < charArr.length; i++) {
+    if(charArr[i].length >= 5) {
+      charArr[i].reverse();
+    }
   }
-  return stringArr;
+  return charArr.map(charArr => charArr.join("")).join(" ");
 }
 
 console.log(spinWords("Mountain"));
-console.log(spinWords("Cuntry Roads take me home"))
+console.log(spinWords("Country roads take me home"));
+console.log(spinWords("This is a test"));
