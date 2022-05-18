@@ -17,6 +17,14 @@
 //return copied array
 
 function moveZeros(arr) {
-    const zeroArr = [...arr];
-    return zeroArr;
+    const copyArr = [...arr];
+    let zeroArr = [];
+    for(let i = 0; i < copyArr.length; i++) {
+        if(copyArr[i] === 0) {
+            zeroArr.push(copyArr[i]);
+        }
+    }
+    return copyArr.filter(ele => ele !== 0).concat(zeroArr);
 }
+
+console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]));
