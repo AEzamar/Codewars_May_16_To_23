@@ -11,12 +11,13 @@
 //moveZeros([false,1,0,1,2,0,1,3,"a"]) // [false, 1, 1, 2, 1, 3, "a", 0, 0];
 
 //Pseudo-code:
+//This pseudo code is a lie
 //Make a copy of the array
 //Loop over copied array
 //if an element of the copied array equals 0, splice it and push it to the end of the array
 //return copied array
 
-function moveZeros(arr) {
+/* function moveZeros(arr) {
     const copyArr = [...arr];
     let zeroArr = [];
     for(let i = 0; i < copyArr.length; i++) {
@@ -25,6 +26,14 @@ function moveZeros(arr) {
         }
     }
     return copyArr.filter(ele => ele !== 0).concat(zeroArr);
+}
+
+console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"])); */
+
+
+//The solution I submitted
+function moveZeros(arr) {
+    return arr.filter(ele => ele !== 0).concat(arr.filter(ele => ele === 0));
 }
 
 console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]));
