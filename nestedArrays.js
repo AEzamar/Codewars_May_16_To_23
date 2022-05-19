@@ -53,3 +53,14 @@ console.log(explode(["2", "4"]));
 console.log(explode([3, 5]));
 console.log(explode(["a", 0]));
 console.log(explode([1, "a"]));
+
+//Cool example from codewars
+/* function explode(x){
+    let [a,b] = x;
+    
+    if(typeof a == "number" && typeof b == "number") return new Array(a+b).fill(x);
+    else if(typeof a == "number") return new Array(a).fill(x);
+    else if(typeof b == "number") return new Array(b).fill(x);
+    
+    return 'Void!';
+  } */
