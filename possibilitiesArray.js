@@ -23,6 +23,15 @@
 function isAllPossibilities(x) {
     const rangeEnd = x.length - 1;
     const sortedArr = x.sort((a, b) => a - b);
+    let possibilities = false;
+    for(let i = 0; i <= rangeEnd; i++) {
+        sortedArr[i] === i ? possibilities = true : possibilities = false;
+    }
+    return !x.includes(0) ? possibilities = false : x.length === 0 ? possibilities = false : possibilities;
 }
 
-console.log(isAllPossibilities([1, 2, 0, 3]));
+console.log(isAllPossibilities([0, 1, 2, 3]));
+console.log(isAllPossibilities([1, 2, 3, 4]));
+console.log(isAllPossibilities([0, 2, 3]));
+console.log(isAllPossibilities([1, 2, 3, 4, 5, 0]));
+console.log(isAllPossibilities([]));
