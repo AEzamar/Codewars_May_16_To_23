@@ -24,9 +24,21 @@
 //If both arr1 and arr2 are passed empty, return empty array
 
 function mergeArrays(arr1, arr2) {
-    const mergedArr = arr1.concat(arr2);
-    const mergedArr1 = [arr1, arr2];
-    console.log(mergedArr, mergedArr1);
     const arr3 = [];
-    for(let i = 0; i < arr1.length)
+    if(arr1.length > 0 && arr2.length > 0) {
+        const mergedArr = arr1.concat(arr2);
+        for(let i = 0; i < mergedArr.length; i++) {
+            if(!arr3.includes(mergedArr[i])) {
+                arr3.push(mergedArr[i]);
+            }
+        }
+    }else if(arr1.length > 0) {
+        return arr1.sort((a, b) => a - b);
+    }else {
+        return arr2.sort((a, b) => a - b);
+    }
+    return arr3.sort((a, b) => a - b);
 }
+
+console.log(mergeArrays([1, 2, 3, 4, 5], [6, 7, 8, 9, 10]));
+console.log(mergeArrays([1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12]));
