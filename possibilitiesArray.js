@@ -21,13 +21,13 @@
 //Else return false
 
 function isAllPossibilities(x) {
-    const rangeEnd = x.length - 1;
-    const sortedArr = x.sort((a, b) => a - b);
     let possibilities = false;
-    for(let i = 0; i <= rangeEnd; i++) {
-        sortedArr[i] === i ? possibilities = true : possibilities = false;
+    if(x.length > 0) {
+      for(let i = 0; i < x.length - 1; i++) {
+        x.every((_, i) => x.includes(i)) ? possibilities = true : possibilities = false;
+      }
     }
-    return !x.includes(0) ? possibilities = false : x.length === 0 ? possibilities = false : possibilities;
+    return possibilities;
 }
 
 console.log(isAllPossibilities([0, 1, 2, 3]));
