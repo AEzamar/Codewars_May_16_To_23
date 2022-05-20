@@ -25,4 +25,4 @@ function isAllPossibilities(x) {
     const sortedArr = x.sort((a, b) => a - b);
 }
 
-console.log(isAllPossibilities([1, 2, 0, 3]))
+console.log(isAllPossibilities([1, 2, 0, 3]));
