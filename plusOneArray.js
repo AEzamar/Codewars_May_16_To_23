@@ -22,9 +22,8 @@
 function upArray(arr) {
     if(arr.length > 0 && arr.every(int => int >= 0 && int <= 9)) {
         const singleIntStr = arr.join("");
-        const singleInt = Number(singleIntStr) + 1;
-        const stringedSingleInt = String(singleInt);
-        return Array.from(stringedSingleInt, strInt => Number(strInt));
+        const singleInt = BigInt(singleIntStr) + BigInt(1);
+        return String(singleInt).split("");
     }else {
         return null;
     }
@@ -33,6 +32,7 @@ function upArray(arr) {
 console.log(upArray([2, 3, 9]));
 console.log(upArray([4, 3, 2, 5]));
 console.log(upArray([]));
+console.log(upArray([9, 2, 2, 3, 3, 7, 2, 0, 3, 6, 8, 5, 4, 7, 7, 5, 8, 0, 7]));
 
 
 /* function upArray1(arr) {
