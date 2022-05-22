@@ -22,8 +22,8 @@
 function upArray(arr) {
     if(arr.length > 0 && arr.every(int => int >= 0 && int <= 9)) {
         const singleIntStr = arr.join("");
-        const singleInt = BigInt(singleIntStr) + BigInt(1);
-        return String(singleInt).split("");
+        const singleInt = Number(singleIntStr) + 1;
+        return singleInt;
     }else {
         return null;
     }
