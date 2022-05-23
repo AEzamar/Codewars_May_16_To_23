@@ -36,23 +36,14 @@ console.log(sumOfDifferences([-17, 17]));
 console.log(sumOfDifferences([])); */
 
 function sumOfDifferences1(arr) {
-    let difference;
-    let length = arr.length;
     const sortedArr = arr.sort((a, b) => b - a);
-    let curr = 0, next = 1;   
+    let curr = 0, next = 1, length = arr.length;
+    let difference = sortedArr[curr] - sortedArr[next];   
     if(length ===  2) {
-        difference = sortedArr[curr] - sortedArr[next];
+        return difference;
     }
     if(length > 2) {
-        difference = sortedArr.reduce((accu, curr) => {
-            const result = accu + curr;
-            console.log(result);
-        }, 0);
-        /* for(let i = 0; i <= sortedArr.length; i++) {
-            difference = sortedArr[curr] - sortedArr[next] + sortedArr[curr++] - sortedArr[next++];
-            //next++;
-            //curr++;
-        } */
+        
     }
     return length === 0 ? 0 : length === 1 ? 0 : difference;
 }
