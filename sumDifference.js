@@ -21,9 +21,11 @@ function sumOfDifferences(arr) {
     const sortedArr = arr.sort((a, b) => b - a);
     let curr = 0;
     let next = 1;
+    let difference;
     for(let i = 0; i < sortedArr.length; i++) {
-        console.log(arr[curr] - arr[next] + arr[curr + 1] - arr[next + 1]);
+        difference = arr[curr] - arr[next] + arr[curr + 1] - arr[next + 1];
     }
+    return arr.length === 0 ? null : difference;
 }
 
 console.log(sumOfDifferences([1, 2, 10]));
