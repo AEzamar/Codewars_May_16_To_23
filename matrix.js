@@ -42,10 +42,8 @@ function matrix(array) {
     for(let i = 0; i < arrCopy.length; i++) {
         const diagonalIndex = array[i][indexer];
         if(diagonalIndex < 0) {
-            //console.log(arrCopy[i].indexOf(diagonalIndex))
             arrCopy[i].splice(arrCopy[i].indexOf(diagonalIndex), 1, 0);
         }else if(diagonalIndex >= 0) {
-            //console.log(arrCopy[i].indexOf(diagonalIndex));
             arrCopy[i].splice(arrCopy[i].indexOf(diagonalIndex), 1, 1);
         }
         indexer++
