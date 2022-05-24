@@ -38,7 +38,6 @@
 function matrix(array) {
     const arrCopy = [...array];
     let indexer = 0;
-    //let accumulator = [];
     for(let i = 0; i < arrCopy.length; i++) {
         const diagonalIndex = array[i][indexer];
         if(diagonalIndex < 0) {
@@ -48,7 +47,7 @@ function matrix(array) {
         }
         indexer++
     }
-    return arrCopy;
+    return array.length === 0 ? [] : arrCopy;
 }
 
 console.log(matrix([
@@ -58,3 +57,15 @@ console.log(matrix([
     [ 1,  5, -7, -8, -9 ],
     [-3,  2,  1, -5,  6 ]
   ]));
+
+  console.log(matrix([
+    [ 1, -89, 4, 34, -42, -18, -56, 54, -0, 88 ],
+    [ -63, 0, 70, 26, -76, -99, 57, 51, -4, 86 ],
+    [ -75, 6, 1, 3, 85, -33, -40, 47, 90, -56 ],
+    [ 88, 74, 81, 0, -51, 90, -69, -55, -78, 65 ],
+    [ 1, -35, -49, 77, 1, 26, 65, -27, -16, 7 ],
+    [ 69, 28, -58, 33, 28, 0, -47, -49, -45, -61 ],
+    [ -5, 88, -51, -79, -28, 14, 1, 31, -86, 41 ],
+    [ 71, -24, 68, -90, 23, 1, -25, 39, -97, -76 ],
+    [ 93, 79, 7, -41, 48, 38, 37, 67, 0, -51 ],
+    [ -35, -99, -45, 1, -61, -88, 86, 56, -2, 1 ]]));
