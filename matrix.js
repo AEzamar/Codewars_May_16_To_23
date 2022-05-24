@@ -38,12 +38,22 @@
 function matrix(array) {
     const arrCopy = [...array];
     let indexer = 0;
+    //let accumulator = [];
     for(let i = 0; i < arrCopy.length; i++) {
-        for(let j = 0; j < arrCopy[i].length; j++){
-            console.log(arrCopy[i][j][indexer])
-            indexer++;
+        const diagonalInt = arrCopy[i][indexer];
+        if(diagonalInt < 0) {
+            //console.log(diagonalInt);
+            //console.log(arrCopy[i].indexOf(array[i][indexer]))
+            //arrCopy.splice(arrCopy.indexOf(diagonalInt), 1, 0);
+        }else if(diagonalInt >= 0) {
+            console.log(arrCopy[i].indexOf(array[i][indexer]));
+            //console.log(diagonalInt);
+            //arrCopy.splice(diagonalInt, 1);
         }
+        indexer++
+
     }
+    return arrCopy;
 }
 
 console.log(matrix([
