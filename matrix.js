@@ -40,18 +40,15 @@ function matrix(array) {
     let indexer = 0;
     //let accumulator = [];
     for(let i = 0; i < arrCopy.length; i++) {
-        const diagonalInt = arrCopy[i][indexer];
-        if(diagonalInt < 0) {
-            //console.log(diagonalInt);
-            //console.log(arrCopy[i].indexOf(array[i][indexer]))
-            //arrCopy.splice(arrCopy.indexOf(diagonalInt), 1, 0);
-        }else if(diagonalInt >= 0) {
-            console.log(arrCopy[i].indexOf(array[i][indexer]));
-            //console.log(diagonalInt);
-            //arrCopy.splice(diagonalInt, 1);
+        const diagonalIndex = array[i][indexer];
+        if(diagonalIndex < 0) {
+            //console.log(arrCopy[i].indexOf(diagonalIndex))
+            arrCopy[i].splice(arrCopy[i].indexOf(diagonalIndex), 1, 0);
+        }else if(diagonalIndex >= 0) {
+            //console.log(arrCopy[i].indexOf(diagonalIndex));
+            arrCopy[i].splice(arrCopy[i].indexOf(diagonalIndex), 1, 1);
         }
         indexer++
-
     }
     return arrCopy;
 }
