@@ -14,6 +14,9 @@
 //Use other methods to eliminate the last element, such as splice or slice
 
 function withoutLast(arr) {
-    arr.pop(); // removes the last element
-    return arr;
+    const copyArr = [...arr];
+    copyArr.pop();
+    return copyArr;
 }
+
+console.log(withoutLast([96, 71, 25, 57, 1, 59]));
