@@ -23,18 +23,24 @@
 //Sort array in ascending order
 //Return first item in array after sorting
 
-class SmallestIntegerFinder {
+/* class SmallestIntegerFinder {
     findSmallestInt(args) {
-        let smallest = 0;
+        let smallest = args[0];
         for(let i = 0; i <= args.length; i++) {
-            if(args[i] < smallest) {
-                smallest = args[i];
-            }else {
-                return smallest
-            }
+            args[i] < smallest ? smallest = args[i] : smallest;
         }
     return smallest;
     }
+} */
+
+class SmallestIntegerFinder {
+    findSmallestInt(args) {
+        const sortedArr = args.sort((a, b) => a - b);
+        return sortedArr[0];
+    }
 }
 
-console.log(SmallestIntegerFinder.findSmallestInt([34, 15, 88, 2]));
+const finder = new SmallestIntegerFinder();
+console.log(finder.findSmallestInt([34, 15, 88, 2]));
+console.log(finder.findSmallestInt([34, -345, -1, 100]));
+console.log(finder.findSmallestInt([0, 0, -1, -200, 1, -2, -4]));
