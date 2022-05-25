@@ -43,8 +43,10 @@ function sumOfDifferences1(arr) {
         return difference;
     }
     if(length > 2) {
-        
+        difference = difference + sortedArr[curr] - sortedArr[next]; 
     }
+    curr++;
+    next++;
     return length === 0 ? 0 : length === 1 ? 0 : difference;
 }
 
