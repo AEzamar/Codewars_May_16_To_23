@@ -18,6 +18,11 @@
 //Repeat this process until the end of the array
 //Return the variable with the minimal value after the loop is done comparing values
 
+//Pseudo-code:
+//Lazy-solution
+//Sort array in ascending order
+//Return first item in array after sorting
+
 class SmallestIntegerFinder {
     findSmallestInt(args) {
         let smallest = 0;
@@ -31,3 +36,5 @@ class SmallestIntegerFinder {
     return smallest;
     }
 }
+
+console.log(SmallestIntegerFinder.findSmallestInt([34, 15, 88, 2]));
