@@ -25,7 +25,7 @@ function perimeters(n) {
     let prev = 0, curr = 0, next = prev + curr;
     for(let i = 1; i <= n; i++) {  //i += i++
         fiboArr.push(i);
-        fiboArr.push(i + i);
+        fiboArr.push(i++);
     }
     return fiboArr;
 }
