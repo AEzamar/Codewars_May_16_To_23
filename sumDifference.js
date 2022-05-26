@@ -38,13 +38,14 @@ console.log(sumOfDifferences([])); */
 function sumOfDifferences1(arr) {
     const sortedArr = arr.sort((a, b) => b - a);
     let curr = 0, next = 1, length = arr.length;
-    let difference = sortedArr[curr] - sortedArr[next];   
-    if(length ===  2) {
-        return difference;
-    }else if(length > 2) {
-        difference = difference + sortedArr[curr] - sortedArr[next]; 
-    }
-    curr++;
+    let difference = sortedArr[curr] - sortedArr[next];  
+    for(let i = 0; i < sortedArr.length; i++) {
+        if(length ===  2) {
+            return difference;
+        }else if(length > 2) {
+            difference = (sortedArr[curr] - sortedArr[next]) + (sortedArr[i] - sortedArr[next]); 
+        }
+    } 
     next++;
     return length === 0 ? 0 : length === 1 ? 0 : difference;
 }
@@ -54,3 +55,5 @@ console.log(sumOfDifferences1([-3, -1, -2]));
 console.log(sumOfDifferences1([-17, 17]));
 console.log(sumOfDifferences1([]));
 console.log(sumOfDifferences1([5,11,13,6,0,-14,13]));
+console.log(sumOfDifferences1([-14,-14,11,-5,-11,0,9,9,-3,5,-11,-14,2,12,5,4,12,-13,-13,-11]));
+console.log(sumOfDifferences1([5,-6,4,-23,20,-11,-2,0,26,4,-19,-14,20,14,23,-12,-16,-22,19,-20,-14,10,28,-29]));

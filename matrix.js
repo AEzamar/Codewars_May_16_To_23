@@ -36,18 +36,18 @@
 //Return two-dimensional array with modified diagonal row of integers
 
 function matrix(array) {
-    const arrCopy = [...array];
-    let indexer = 0;
-    for(let i = 0; i < arrCopy.length; i++) {
-        const diagonalIndex = array[i][indexer];
-        if(diagonalIndex < 0) {
-            arrCopy[i].splice(arrCopy[i].indexOf(diagonalIndex), 1, 0);
-        }else if(diagonalIndex >= 0) {
-            arrCopy[i].splice(arrCopy[i].indexOf(diagonalIndex), 1, 1);
-        }
-        indexer++
+  const arrCopy = [...array];
+  let indexer = 0;
+  for(let i = 0; i < arrCopy.length; i++) {
+    const diagonalIndex = array[i][indexer];
+    if(diagonalIndex < 0) {
+      arrCopy[i].splice(arrCopy[i].indexOf(diagonalIndex), 1, 0);
+    }else if(diagonalIndex >= 0) {
+      arrCopy[i].splice(arrCopy[i].indexOf(diagonalIndex), 1, 1);
     }
-    return array.length === 0 ? [] : arrCopy;
+    indexer++
+  }
+  return array.length === 0 ? [] : arrCopy;
 }
 
 console.log(matrix([
