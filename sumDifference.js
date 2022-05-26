@@ -41,8 +41,7 @@ function sumOfDifferences1(arr) {
     let difference = sortedArr[curr] - sortedArr[next];   
     if(length ===  2) {
         return difference;
-    }
-    if(length > 2) {
+    }else if(length > 2) {
         difference = difference + sortedArr[curr] - sortedArr[next]; 
     }
     curr++;
