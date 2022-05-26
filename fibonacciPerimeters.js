@@ -22,10 +22,11 @@
 
 function perimeters(n) {
     const fiboArr = [];
-    let prev = 0, curr = 0, next = prev + curr;
-    for(let i = 1; i <= n; i++) {  //i += i++
-        fiboArr.push(i);
-        fiboArr.push(i++);
+    //let prev = 0, curr = 1, next = prev + curr;
+    for(let i = 0; i <= n; i++) {  //i += i++
+        let curr = i+1, next = i + curr;
+        console.log(i, curr, next);
+        //fiboArr.push(i, curr, next);
     }
     return fiboArr;
 }
