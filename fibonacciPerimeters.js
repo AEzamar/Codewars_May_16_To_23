@@ -24,8 +24,20 @@ function perimeters(n) {
     const fiboArr = [];
     //let prev = 0, curr = 1, next = prev + curr;
     for(let i = 0; i <= n; i++) {  //i += i++
-        let curr = i+1, next = i + curr;
-        console.log(i, curr, next);
+        //let curr = i+1, next = i + curr;
+        //console.log(i, curr, next);
+        //let prev = i, curr = i + 1; next = prev + curr;
+        let newN = i + (i - 1);
+        //let  curr = i, next = curr + 1, prev = i - 1;
+        //curr = next, next = c + c
+        //console.log('curr:', curr, 'next:', next);
+        //fiboArr.push(curr, next);
+        //curr = next
+        //next = curr + prev;
+        //console.log('curr:', curr, 'next:', next);
+        fiboArr.push(i, newN);
+        //curr = next
+        //next = curr + curr;
         //fiboArr.push(i, curr, next);
     }
     return fiboArr;
