@@ -51,7 +51,7 @@ function arrAdder1(arr) {
     for(let i = 0; i < arr.length; i++) {
         strFromArr += ' ';
      for(let j = 0; j < arr[i].length; j++) {
-        if(arr[j][i] !== '') {
+        if(arr[j][i] !== undefined) {
             strFromArr += arr[j][i];
         }
          //strFromArr += arr[j][i];
