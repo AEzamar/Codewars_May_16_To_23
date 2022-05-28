@@ -35,7 +35,7 @@ console.log(sumOfDifferences([-3, -1, -2]));
 console.log(sumOfDifferences([-17, 17]));
 console.log(sumOfDifferences([])); */
 
-function sumOfDifferences1(arr) {
+/* function sumOfDifferences1(arr) {
     const sortedArr = arr.sort((a, b) => b - a);
     let curr = 0, next = 1, length = arr.length;
     let difference = sortedArr[curr] - sortedArr[next];  
@@ -48,8 +48,15 @@ function sumOfDifferences1(arr) {
     } 
     next++;
     return length === 0 ? 0 : length === 1 ? 0 : difference;
-}
+} */
 
+////////////////////Failed/////////////////
+//Codewars solution
+/* const sumOfDifferences = arr => arr
+  .sort((a, b) => b - a)
+  .map((a, i) => a - arr[i + 1] || 0)
+  .reduce((a, b) => a + b, 0);
+ */
 console.log(sumOfDifferences1([1, 2, 10]));
 console.log(sumOfDifferences1([-3, -1, -2]));
 console.log(sumOfDifferences1([-17, 17]));

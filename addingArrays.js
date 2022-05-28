@@ -46,13 +46,36 @@ function arrAdder(arr) {
 //console.log(arrAdder([['J','L','L','M'],['u','i','i','a'],['s','v','f','n'],['t','e','e','']]));
 
 function arrAdder1(arr) {
-    let iterator = 0;
-    return arr.forEach(subArr => {
-        subArr.forEach(ele => {
-            console.log(ele);
-        })
-    });
+    let strFromArr = '';
+    const dumpSpace = [];
+    for(let i = 0; i < arr.length; i++) {
+        strFromArr += ' ';
+     for(let j = 0; j < arr[i].length; j++) {
+        if(arr[j][i] !== '') {
+            strFromArr += arr[j][i];
+        }
+         //strFromArr += arr[j][i];
+     }
+    }
+    return arr.length === 0 ? []: strFromArr.trim();
 }
 
-console.log(arrAdder1([['J','L','L','M'],['u','i','i','a'],['s','v','f','n'],['t','e','e','']]));
+console.log(arrAdder1([
+['J','L','L','M'],
+['u','i','i','a'],
+['s','v','f','n'],
+['t','e','e','']]));
 
+console.log(arrAdder1([ 
+    [ 'T', 'M', 'i', 't', 'p', 'o', 't', 'c' ],
+    [ 'h', 'i', 's', 'h', 'o', 'f', 'h', 'e' ],
+    [ 'e', 't', '', 'e', 'w', '', 'e', 'l' ],
+    [ '', 'o', '', '', 'e', '', '', 'l' ],
+    [ '', 'c', '', '', 'r', '', '', '' ],
+    [ '', 'h', '', '', 'h', '', '', '' ],
+    [ '', 'o', '', '', 'o', '', '', '' ],
+    [ '', 'n', '', '', 'u', '', '', '' ],
+    [ '', 'd', '', '', 's', '', '', '' ],
+    [ '', 'r', '', '', 'e', '', '', '' ],
+    [ '', 'i', '', '', '', '', '', '' ],
+    [ '', 'a', '', '', '', '', '', '' ] ]))
