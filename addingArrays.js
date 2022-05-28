@@ -58,13 +58,13 @@ function arrAdder1(arr) {
     return arr.length === 0 ? []: strFromArr.trim();
 }
 
-console.log(arrAdder1([
+/* console.log(arrAdder1([
 ['J','L','L','M'],
 ['u','i','i','a'],
 ['s','v','f','n'],
-['t','e','e','']]));
+['t','e','e','']])); */
 
-console.log(arrAdder1([ 
+/* console.log(arrAdder1([ 
     [ 'T', 'M', 'i', 't', 'p', 'o', 't', 'c' ],
     [ 'h', 'i', 's', 'h', 'o', 'f', 'h', 'e' ],
     [ 'e', 't', '', 'e', 'w', '', 'e', 'l' ],
@@ -77,3 +77,4 @@ console.log(arrAdder1([
     [ '', 'r', '', '', 'e', '', '', '' ],
     [ '', 'i', '', '', '', '', '', '' ],
     [ '', 'a', '', '', '', '', '', '' ] ]))
+ */
