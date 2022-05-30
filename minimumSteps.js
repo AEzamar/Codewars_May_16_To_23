@@ -20,12 +20,19 @@
 //Return operationsCount
 
 function minimumSteps(numbers, value) {
-    let total = 0, operationsCount = 0;
+    const sortedNumbers = numbers.sort((a, b) => a - b);
+    let total = sortedNumbers[0], operationsCount = 0, next = 1;
     while(total < value) {
-        for(let i = 0; i < numbers.length; i++) {
-            total += numbers[i] + numbers[i + 1];
-        }
+        total += sortedNumbers[next];
+        next++;
         operationsCount++;
     }
     return operationsCount;
-}
+};
+
+console.log(minimumSteps([4,6,3], 7));
+console.log(minimumSteps([10,9,9,8], 17));
+console.log(minimumSteps([8,9,10,4,2], 23));
+console.log(minimumSteps([19,98,69,28,75,45,17,98,67], 464));
+console.log(minimumSteps([4,6,3], 2));
+console.log(minimumSteps([1, 10, 12, 9, 2, 3], 6));
