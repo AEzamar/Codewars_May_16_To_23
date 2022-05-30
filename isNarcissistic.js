@@ -21,8 +21,8 @@
 //else return false;
 
 function isNarcissistic(n) {
-    const splitN = String(n).split("").map(ele => Number(ele) ** splitN.length);
-    return splitN;
+    return String(n).split("").map((ele, _, arr) => Number(ele) ** arr.length).reduce((a, b) => a + b, 0) === n ? true: false;
 }
 
 console.log(isNarcissistic(153));
+console.log(isNarcissistic(123));
