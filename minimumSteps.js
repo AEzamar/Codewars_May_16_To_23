@@ -21,9 +21,11 @@
 
 function minimumSteps(numbers, value) {
     let total = 0, operationsCount = 0;
-    while(operationsCount < value) {
+    while(total < value) {
         for(let i = 0; i < numbers.length; i++) {
-            
+            total += numbers[i] + numbers[i + 1];
         }
+        operationsCount++;
     }
+    return operationsCount;
 }
