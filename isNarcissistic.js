@@ -1,0 +1,28 @@
+//PREP
+//Parameters
+//A single integer
+
+//Return:
+//The function should return true if the integer is narcissistic, meaning that if each individual number of the integer is exponentiated by the the length of the
+//Number and the sum of this returns the same integer, then that integer is narcissistic
+//Otherwise return false
+
+//Example:
+//isNarcissistic(153) => 1 ** 3(the Numbers length) = 1, 5 ** 3 => 125  => 126 => 3 ** 3 = 27 => 126 + 27 = 153, so this number is narcissistic => true;
+
+//Pseudo-code:
+//Convert integer to string
+//Split string to an array of string represented numbers
+//Map through array of strings
+//Convert each element of the array into a number
+//Exponentiate each number by the length of the original number and sum the result of each exponentiation
+//Compare the result of previous operation with original number
+//if original number and result are equal return true
+//else return false;
+
+function isNarcissistic(n) {
+    const splitN = String(n).split("").map(ele => Number(ele) ** splitN.length);
+    return splitN;
+}
+
+console.log(isNarcissistic(153));
