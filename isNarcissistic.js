@@ -26,3 +26,11 @@ function isNarcissistic(n) {
 
 console.log(isNarcissistic(153));
 console.log(isNarcissistic(123));
+
+//Codewars solution
+//The index can be replaced with _ since it wasn't used
+//Other than that this is a pretty elegant solution
+
+/* function isNarcissistic(n) {
+    return n === n.toString().split('').reduce((res, num, index, arr) => res += Math.pow(num, arr.length), 0);
+  } */
