@@ -35,7 +35,7 @@ function perimeters(n) {
         //curr = next
         //next = curr + prev;
         //console.log('curr:', curr, 'next:', next);
-        fiboArr.push(i, newN);
+        fiboArr.push(newN);
         //curr = next
         //next = curr + curr;
         //fiboArr.push(i, curr, next);
