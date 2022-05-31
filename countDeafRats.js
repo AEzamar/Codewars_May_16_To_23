@@ -24,20 +24,23 @@
 
 function countDeafRats(town) {
     const ratRegExPiperStart = /~O/g;
-    const ratRegExPiperEnd = /^O~$/g;
+    const ratRegExPiperEnd = /O~/g;
     const ratStringStart = 'P O~O~O~O~~OO~';
     const ratArrTest = ratStringStart.split(/\bO~\b/ig);
-    console.log(ratArrTest);
+    //sconsole.log(ratArrTest);
     //console.log(ratStringStart.match(ratRegExPiperStart));
     /* const ratString = 'P O~ O~ ~O O~';
     console.log(ratString.match(ratRegExLeft)); */
     let deafRats = 0;
     if(town.startsWith('P')) {
-        const townArr = town.split(" ");
+        for(let rat of town) {
+            console.log(town.split(/\SO~\S/ig));
+        }
+       /*  const townArr = town.split(" ");
         for(let rat of townArr) {
             if(ratRegExPiperStart.test(rat)) deafRats++;
             return deafRats;
-        }
+        } */
         /* town.includes('~0') ? deafRats++ : deafRats;
         console.log(town.includes('~0'));
         console.log('Deaf Rats:', deafRats); */
