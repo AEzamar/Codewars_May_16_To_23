@@ -23,18 +23,41 @@
 //After the iteration is over return deafRats;
 
 function countDeafRats(town) {
+    const ratRegExPiperStart = /~O/g;
+    const ratRegExPiperEnd = /^O~$/g;
+    const ratStringStart = 'P O~O~O~O~~OO~';
+    const ratArrTest = ratStringStart.split(/.+?O~/ig);
+    console.log(ratArrTest);
+    //console.log(ratStringStart.match(ratRegExPiperStart));
+    /* const ratString = 'P O~ O~ ~O O~';
+    console.log(ratString.match(ratRegExLeft)); */
     let deafRats = 0;
     if(town.startsWith('P')) {
-        town.includes('~0') ? deafRats++ : deafRats;
+        const townArr = town.split(" ");
+        for(let rat of townArr) {
+            if(ratRegExPiperStart.test(rat)) deafRats++;
+            return deafRats;
+        }
+        /* town.includes('~0') ? deafRats++ : deafRats;
+        console.log(town.includes('~0'));
+        console.log('Deaf Rats:', deafRats); */
+        //return deafRats;
     }
     if(town.endsWith('P')) {
-        town.includes('0~') ? deafRats++ : deafRats;
+        const townArr = town.split(" ");
+        for(let rat of townArr) {
+            if(ratRegExPiperEnd.test(rat)) deafRats++;
+            return deafRats;
+        }
     }
     if(town.includes('P')) {
         const leftSideRange = town[0] + town.indexOf('P');
         const rightSideRange = town.indexOf('P') + town[town.length - 1];
-        town[leftSideRange].includes('0~') ? deafRats++ : deafRats;
-        town[rightSideRange].includes('~0') ? deafRats++ : deafRats;
+        leftSideRange.includes('O~') ? deafRats++ : deafRats;
+        rightSideRange.includes('~O') ? deafRats++ : deafRats;
     }
     return deafRats;
 }
+
+console.log(countDeafRats('~O~O~O~O P'));
+console.log(countDeafRats('PO~O~~OO~'));
