@@ -17,9 +17,15 @@
 //The capture group that catches the domain should be returned
 
 function getDomain(url) {
-    const urlRegex = /^(http[s]:\/\/)(www\.)|(\w+)(\.\w+)+|(\/\w+)+/ig
+    const urlRegex = /^(https:\/\/)(www\.)(\w+)(\.\w+)+|(\/\w+)+/ig
     return url.replace(urlRegex, '$3');
 }
 
 console.log(getDomain('https://www.google.com'));
 console.log(getDomain('http://github.com/carbonfive/raygun'));
+
+const macAddressRegex = /([A-F]|[0-9]{2}:)+/gi
+const macAddress = '01:32:54:67:89:AB';
+const macAddress1 = '0132546789AB';
+console.log(macAddressRegex.test(macAddress));
+console.log(macAddressRegex.test(macAddress1));
