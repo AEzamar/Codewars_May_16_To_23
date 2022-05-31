@@ -26,7 +26,7 @@ function countDeafRats(town) {
     const ratRegExPiperStart = /~O/g;
     const ratRegExPiperEnd = /^O~$/g;
     const ratStringStart = 'P O~O~O~O~~OO~';
-    const ratArrTest = ratStringStart.split(/.+?O~/ig);
+    const ratArrTest = ratStringStart.split(/\bO~\b/ig);
     console.log(ratArrTest);
     //console.log(ratStringStart.match(ratRegExPiperStart));
     /* const ratString = 'P O~ O~ ~O O~';
