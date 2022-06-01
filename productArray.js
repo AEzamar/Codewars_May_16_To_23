@@ -21,8 +21,43 @@
 //Keep doing this process for array.length number of times
 //After loop is over return prodArr with all the results of the multiplications
 
-function productArray(numbers) {
-    let opCount = 0;
+//Making a helper function
+//Except index has to be i in the productArray function's for loop
+function extractAndReduce(array, excepIndex) {
+    const exceptArr = [];
+    const arrayCopy = [...array];
+    arrayCopy.splice(excepIndex, 1);
+    for(let i = 0; i < arrayCopy.length; i++) {
+        exceptArr.push(arrayCopy[i]);
+    }
+    return exceptArr.reduce((tot, cur) => tot * cur);
 }
 
-console.log(productArray([3,27,4,2]));
+console.log(extractAndReduce([3, 27, 4, 2], 0));
+
+/* function productArray(numbers) {
+    let opCount = 0;
+    let productArr = [];
+    const numbersCopy = [...numbers];
+    for(let i = 0; i < numbersCopy.length - 1; i++) {
+        if(opCount === i) {
+            numbersCopy.splice(i, 1);
+            console.log()
+            productArr.push(numbersCopy[i])
+            
+            //productArr.push(numbers[i])
+        }
+        opCount++;
+    }
+    return productArr.reduce((tot, cur) => tot * cur);
+} */
+
+function productArray(number) {
+    const opCount = 0;
+    const productArr = [];
+    for(let i = 0; i < number.length; i++) {
+        extractAndReduce(number, i)
+    }
+}
+
+//console.log(productArray([3,27,4,2]));
