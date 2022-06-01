@@ -17,7 +17,7 @@
 //The capture group that catches the domain should be returned
 
 function getDomain(url) {
-    const urlRegex = /^(https:\/\/)(www\.)(\w+)(\.\w+)+|(\/\w+)+/ig
+    const urlRegex = /^(http|https:\/\/)(www\.|\w+)(\w+)(\.\w+)+|(\/\w+)+/ig
     return url.replace(urlRegex, '$3');
 }
 

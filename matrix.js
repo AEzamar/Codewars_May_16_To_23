@@ -69,3 +69,12 @@ console.log(matrix([
     [ 71, -24, 68, -90, 23, 1, -25, 39, -97, -76 ],
     [ 93, 79, 7, -41, 48, 38, 37, 67, 0, -51 ],
     [ -35, -99, -45, 1, -61, -88, 86, 56, -2, 1 ]]));
+
+//Codewars solution:
+//Are you kidding me?
+/* function matrix(array) {
+  for (let i = 0; i < array.length; i++) {
+    array[i][i] = array[i][i] < 0 ? 0 : 1
+  }
+  return array;
+} */
