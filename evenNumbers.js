@@ -19,9 +19,12 @@
 //Return sub-array of even numbers
 
 function evenNumbers(array, number) {
+    const lastEven = [];
     const evenArr =  array.filter(num => num % 2 === 0);
-    console.log(evenArr);
-    return evenArr.slice();
+    for(let i = number; i > 0; i--) {
+        lastEven.push(evenArr[evenArr.length - i]);
+    }
+    return lastEven;
 }
 
 console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
