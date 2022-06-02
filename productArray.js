@@ -26,14 +26,13 @@
 function extractAndReduce(array, excepIndex) {
     const exceptArr = [];
     const arrayCopy = [...array];
-    arrayCopy.splice(excepIndex, 1);
-    for(let i = 0; i < arrayCopy.length; i++) {
-        exceptArr.push(arrayCopy[i]);
-    }
-    return exceptArr.reduce((tot, cur) => tot * cur);
+    //const slicedArr = arrayCopy.slice(excepIndex, excepIndex + 1);
+    const filteredArr = arrayCopy.filter(ele => ele !== arrayCopy[excepIndex]);
+    return filteredArr.reduce((tot, cur) => tot * cur);
 }
 
 console.log(extractAndReduce([3, 27, 4, 2], 0));
+console.log(extractAndReduce([13,10,5,2,9], 1), );
 
 /* function productArray(numbers) {
     let opCount = 0;
@@ -56,8 +55,8 @@ function productArray(number) {
     const opCount = 0;
     const productArr = [];
     for(let i = 0; i < number.length; i++) {
-        extractAndReduce(number, i)
+        productArr.push(extractAndReduce(number, i));
     }
 }
 
-//console.log(productArray([3,27,4,2]));
+console.log(productArray([3,27,4,2]));
