@@ -19,9 +19,9 @@
 //Return product of reduction
 
 function maxProduct(numbers, size) {
-    const sortedNums = numbers.sort((a, b) => b - a);
-    const arrSlice = sortedNums.slice(0, size);
-    return arrSlice;
-   /*  for(let i = 0; i < size; i++) {
-    } */
+    return numbers.sort((a, b) => b - a).slice(0, size).reduce((total, curr) => total * curr);
 }
+
+console.log(maxProduct([4,3,5], 2));
+console.log(maxProduct([10,8,7,9], 3));
+console.log(maxProduct([8,6,4,6], 3));
