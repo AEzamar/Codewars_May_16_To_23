@@ -24,27 +24,24 @@
 //If the last element of the array is bigger than 0 push it to leadersArr too
 //After all the iterations are done return leadersArr
 
-//array.slice(array[possibleLeader]);
-//array.every(num => {
-//  if(array[possibleLeader] > num) {
-//      return array[possibleLeader];   
-//} else {
-    //possibleLeader++;
-//}
-//})
+
+function sliceAndReduce(array, indexOfLd) {
+    return array.slice(indexOfLd + 1).reduce((tot, cur) => tot + cur);    
+}
 
 function arrayLeaders(numbers) {
     const leadersArr = [];
-    let possibleIndex = 0
-    const leftSide = numbers.slice(0, possibleIndex);
-    const rightSide = numbers.slice(possibleIndex + 1);
-    const subArr = [...leftSide, ...rightSide];
-    const subArrTotal = subArr.reduce((tot, cur) => tot + cur, 0);
-    for(let i = 0; i < numbers.length; i++) {
-        if(numbers[possibleIndex] > subArrTotal) leadersArr.push(numbers[possibleIndex]);
-        possibleIndex++
-    }
-    return rightNumbers;
+    for(let i = 0; i < numbers.length - 1; i++) {
+        const sum = [...numbers.slice(i + 1)].reduce((tot, cur) => tot + cur);
+        if( numbers[i] > sum) {
+            leadersArr.push(numbers[i]);
+        }
+    };
+    if(numbers[numbers.length - 1] > 0) leadersArr.push(numbers[numbers.length - 1]); 
+    return leadersArr;
 }
 
 console.log(arrayLeaders([1,2,3,4,0]));
+console.log(arrayLeaders([16,17,4,3,5,2]));
+console.log(arrayLeaders([-1,-29,-26,-2]));
+console.log(arrayLeaders([-36,-12,-27]));
