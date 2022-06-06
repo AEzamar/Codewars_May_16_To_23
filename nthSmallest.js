@@ -18,7 +18,29 @@
 //Return the integer with position pos
 
 function nthSmallest(arr, pos) {
-    return arr.sort((a, b) => a - b).filter(int => int === arr[pos]);
+    let smallest = undefined;
+    const sortedArr = arr.sort((a, b) => a - b);
+    for(let i = 0; i < sortedArr.length; i++) {
+        if(i === pos - 1) {
+            smallest = arr[i];
+        }
+    }
+    return smallest;
 }
 
+/* function nthSmallest(arr, pos) {
+    return arr.sort((a, b) => a - b).filter((_, idx, array) => {
+        return array[idx] === array[pos - 1]
+    });
+} */
+
+//Codewars user's solution:
+//Dude, this is so simple
+/* function nthSmallest(arr, pos){
+    return arr.sort((a,b)=>a-b)[pos-1]
+  } */
+
 console.log(nthSmallest([3,1,2], 2));
+console.log(nthSmallest([15,20,7,10,4,3], 3));
+console.log(nthSmallest([-5,-1,-6,-18], 4));
+console.log(nthSmallest([-102,-16,-1,-2,-367,-9], 5));
