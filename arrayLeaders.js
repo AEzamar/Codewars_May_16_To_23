@@ -24,11 +24,6 @@
 //If the last element of the array is bigger than 0 push it to leadersArr too
 //After all the iterations are done return leadersArr
 
-
-function sliceAndReduce(array, indexOfLd) {
-    return array.slice(indexOfLd + 1).reduce((tot, cur) => tot + cur);    
-}
-
 function arrayLeaders(numbers) {
     const leadersArr = [];
     for(let i = 0; i < numbers.length - 1; i++) {
