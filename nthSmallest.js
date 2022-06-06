@@ -28,6 +28,8 @@ function nthSmallest(arr, pos) {
     return smallest;
 }
 
+//More simple function, this works but returns an array
+//with the smallest int, I need to spread it or take it out of the array somehow
 /* function nthSmallest(arr, pos) {
     return arr.sort((a, b) => a - b).filter((_, idx, array) => {
         return array[idx] === array[pos - 1]
