@@ -23,11 +23,37 @@
 //Return teamWeights
 
 function rowWeights(array) {
-    const team1 = array.filter((ele, index, arr) => {
-        const team1Index = index % 2 === 1;
-        arr[index + 1] === arr[team1Index];
-    })
-    return team1;
+    const teamWeights = [];
+    const team1 = array.filter((_, index, arr) => {
+        const team1Index = (index + 1) % 2 === 1;
+        if(team1Index) {
+            return arr[index];
+        }
+    });
+    if(team1.length === 0) team1.push(0)
+    
+    const team2 = array.filter((_, index, arr) => {
+        const team2Index = (index + 1) % 2 === 0;
+        if(team2Index) {
+            return arr[index];
+        }
+    });
+    if(team2.length === 0) team2.push(0);
+
+    teamWeights.push(team1.reduce((tot, cur) => tot + cur));
+    teamWeights.push(team2.reduce((tot, cur) => tot + cur));
+    return teamWeights;
 }
 
-console.log(rowWeights(70, 60, 50, 80));
+console.log(rowWeights([80]));
+console.log(rowWeights([70, 60, 50, 80]));
+
+//Codewars solution:
+//Very simple and effective solution
+/* function rowWeights(array){
+    var arr = [0, 0];
+    for (var i = 0; i < array.length; i++) {
+      i % 2 == 0 ? arr[0] += array[i] : arr[1] += array[i];
+    }
+    return arr;
+  } */
