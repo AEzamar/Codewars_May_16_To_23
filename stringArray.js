@@ -23,3 +23,9 @@ function toNumberArray(stringarray) {
 
 console.log(toNumberArray(["1.1","2.2","3.3"]));
 console.log(toNumberArray(["60", "23", "12", "11", "499"]));
+
+//Codewars solution:
+/* function toNumberArray(stringarray)
+{
+  return stringarray.map(parseFloat);
+} */
