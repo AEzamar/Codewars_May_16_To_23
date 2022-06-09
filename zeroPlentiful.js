@@ -20,37 +20,13 @@
 //If a sequence of zeros that fulfills the conditions is not found sequenceCount is equal 0
 //Return sequenceCount
 
-function zeroPlentiful(arr) {
-    let sequenceCounter = 0;
-    let zeroCount = 0;
-    for(let i = 0; i < arr.length; i++) {
-        arr[i] === 0 ? zeroCount++ : zeroCount = 0;
-        if(zeroCount < 4) return sequenceCounter;
-        if(zeroCount >= 4) sequenceCounter++;
-        //arr[i] === 0 ? zeroCount++ : zeroCount = 0, sequenceCounter = 0;
-        //arr[i]
-        //zeroCount >= 4 ? sequenceCounter++ : sequenceCounter;
-     }
-    return sequenceCounter;
+/* if(arr[i] === 0) {
+  zeroCount++;
+  if(zeroCount >= 4) {
+    sequenceCount++
+  }else if(zeroCount)
+} */
+
+function zeroPlentiful() {
+  
 }
-
-//console.log(zeroPlentiful([3]));
-//console.log(zeroPlentiful([0, 0, 0, 0, 0, 0]));
-console.log(zeroPlentiful([3, 0, 0, 0, 0, 6, 9]));
-console.log(zeroPlentiful([0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 9, 0, 0, 0]));
-
-/* function zeroPlentiful(arr){
-    let sequenceCounter = 0;
-    let zeroCount = 0;
-    const zeroArr = [];
-    for(let i = 0; i < arr.length; i++) {
-      if(arr[i] === 0) {
-         zeroCount++;
-      }
-    }
-    zeroCount >= 4 ? sequenceCounter++ : sequenceCounter;
-    console.log('Array:', arr);
-    console.log('Zero Counter', zeroCount)
-    console.log('Sequnce Counter:',sequenceCounter);
-    return sequenceCounter;
-  } */
