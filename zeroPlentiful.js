@@ -27,6 +27,33 @@
   }else if(zeroCount)
 } */
 
-function zeroPlentiful() {
-  
+function zeroPlentiful(arr) {
+  let zeroCount = 0;
+  let sequenceCount = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === 0) {
+      zeroCount++;
+    }else {
+      zeroCount = 0;
+    }
+  }
+  if(zeroCount < 4) sequenceCount;
 }
+
+function zeroPlentiful1(arr) {
+  let zeroArr, sequenceCount = 0;
+  for(let i = 0; i < arr.length; i++) {
+    zeroArr = [];
+    if(arr[i] === 0) {
+      zeroArr.push(arr[i]);
+      if(zeroArr.length < 2) {
+        zeroArr = [];
+      }else if(zeroArr.length >= 4) {
+        sequenceCount++;
+      }
+    }
+  }
+  return sequenceCount;
+}
+
+console.log(zeroPlentiful1([3, 6, 0, 0, 0, 0, 9, 9]))
