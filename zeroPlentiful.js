@@ -41,19 +41,25 @@ function zeroPlentiful(arr) {
 }
 
 function zeroPlentiful1(arr) {
-  let zeroArr, sequenceCount = 0;
+  let zeroArr = [], sequenceCount = 0;
   for(let i = 0; i < arr.length; i++) {
-    zeroArr = [];
     if(arr[i] === 0) {
       zeroArr.push(arr[i]);
-      if(zeroArr.length < 2) {
+      console.log(zeroArr);
+      if(zeroArr.length < 4  && arr[i] !== 0) {
+        console.log('Zero arr is less than 4:', zeroArr)
         zeroArr = [];
-      }else if(zeroArr.length >= 4) {
+      }else if (zeroArr.length < 4) {
+        sequenceCount = 0;
+      }else if(zeroArr.length === 4) {
         sequenceCount++;
+        zeroArr = [];
       }
     }
-  }
+  }  
+  console.log(zeroArr);
   return sequenceCount;
 }
 
-console.log(zeroPlentiful1([3, 6, 0, 0, 0, 0, 9, 9]))
+//console.log(zeroPlentiful1([3, 6, 0, 0, 0, 0, 9, 9]));
+console.log(zeroPlentiful1([0, 0, 0, 0, 4, 1, 2, 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0]));
