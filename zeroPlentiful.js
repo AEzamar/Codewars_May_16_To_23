@@ -93,8 +93,8 @@ function zeroPlentiful3(arr) {
   for(let i = 0; i < arr.length; i++) {
     if(arr[i] === 0) {
       zeroCount++;
-      if(zeroCount < 4 && arr[i] !== 0) {
-        zeroCount = 0;
+      if(zeroCount > 0 && zeroCount < 4) {
+        //zeroCount = 0;
         return sequenceCount = 0;
       }
       if(zeroCount >= 4) {
