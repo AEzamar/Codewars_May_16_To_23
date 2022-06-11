@@ -69,3 +69,12 @@ function createNDimensionalArray(n, size) {
 
 console.log(createNDimensionalArray(3, 2));
 //sconsole.log(createNDimensionalArray(2, 2))
+
+
+/* const iterator = 0;
+while(iterator < n) {
+    outerArr.push([]);
+    if(n > 2) {
+        outerArr[0].push([]);
+    }
+} */
