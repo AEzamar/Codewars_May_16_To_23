@@ -42,17 +42,18 @@ function zeroPlentiful(arr) {
 
 function zeroPlentiful1(arr) {
   let zeroArr = [], sequenceCount = 0;
+  if(arr.every(int => int === 0)) return sequenceCount = 1;
   for(let i = 0; i < arr.length; i++) {
     if(arr[i] === 0) {
       zeroArr.push(arr[i]);
-      console.log(zeroArr);
+      if(zeroArr.length < 4) return sequenceCount = 0;
+      //console.log(zeroArr);
       if(zeroArr.length < 4  && arr[i] !== 0) {
-        console.log('Zero arr is less than 4:', zeroArr)
         zeroArr = [];
       }else if (zeroArr.length < 4) {
         sequenceCount = 0;
-      }else if(zeroArr.length === 4) {
-        sequenceCount++;
+      }else if(zeroArr.length > 4 && arr[i] === 0) {
+        sequenceCount ++;
         zeroArr = [];
       }
     }
@@ -62,4 +63,48 @@ function zeroPlentiful1(arr) {
 }
 
 //console.log(zeroPlentiful1([3, 6, 0, 0, 0, 0, 9, 9]));
-console.log(zeroPlentiful1([0, 0, 0, 0, 4, 1, 2, 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0]));
+//console.log(zeroPlentiful1([0, 0, 0, 0, 4, 1, 2, 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0, 0]));
+//console.log(zeroPlentiful1([0, 0, 0, 0, 0]));
+
+function zeroPlentiful2(arr) {
+  let zeroArr = [], sequenceCount = 0;
+  if(arr.every(int => int === 0)) return sequenceCount = 1;
+  if(!arr.includes(0)) return sequenceCount = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === 0) {
+      zeroArr.push(arr[i]);
+      if(zeroArr.length < 4) {
+        //zeroArr = [];
+        return sequenceCount = 0;
+      }
+      if(zeroArr.length > 4) sequenceCount++; 
+    }
+  }    
+  return sequenceCount;
+}
+
+/* console.log(zeroPlentiful2([0, 0, 0, 0, 4, 1, 2, 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0, 0]));
+console.log(zeroPlentiful2([0, 0, 0, 0, 0])); */
+
+function zeroPlentiful3(arr) {
+  let zeroCount = 0, sequenceCount = 0;
+  if(arr.every(int => int === 0)) return sequenceCount = 1;
+  if(!arr.includes(0)) return sequenceCount;
+  for(let i = 0; i <= arr.length; i++) {
+    if(arr[i] === 0) {
+      zeroCount++;
+      if(zeroCount < 3 && arr[i] !== 0) return sequenceCount = 0;
+      if(zeroCount >= 4) {
+        console.log('Zero count 1:', zeroCount);
+        zeroCount = 0;
+        console.log('ZeroCount 2:', zeroCount);
+        sequenceCount ++;
+      }
+    }
+  }  
+  return sequenceCount; 
+}
+
+//console.log(zeroPlentiful3([0, 0, 0, 4, 1, 2, 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0, 0]));
+//console.log(zeroPlentiful3([0, 0, 0, 0, 0]));
+console.log(zeroPlentiful3([0, 0, 0, 0, 1, 0, 0, 0, 0, 0]));
