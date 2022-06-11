@@ -90,10 +90,10 @@ function zeroPlentiful3(arr) {
   let zeroCount = 0, sequenceCount = 0;
   if(arr.every(int => int === 0)) return sequenceCount = 1;
   if(!arr.includes(0)) return sequenceCount;
-  for(let i = 0; i <= arr.length; i++) {
+  for(let i = 0; i < arr.length; i++) {
     if(arr[i] === 0) {
       zeroCount++;
-      if(zeroCount < 3 && arr[i] !== 0) {
+      if(zeroCount < 4 && arr[i] !== 0) {
         zeroCount = 0;
         return sequenceCount = 0;
       }
@@ -101,7 +101,7 @@ function zeroPlentiful3(arr) {
         console.log('Zero count 1:', zeroCount);
         zeroCount = 0;
         console.log('ZeroCount 2:', zeroCount);
-        sequenceCount ++;
+        sequenceCount++;
       }
     }
   }  
