@@ -41,6 +41,12 @@
 
 function createNDimensionalArray(n, size) {
     let outerArr = [];
+    const newArr = Array.from({ length: n }, (_, i) => {
+        for(let j = 0; j < size; j++) {
+            i = [].push([])
+        }
+    });
+    console.log('New arr:', newArr);
     for(let i = 0; i < n; i++) {
         outerArr.push([]);
     }
