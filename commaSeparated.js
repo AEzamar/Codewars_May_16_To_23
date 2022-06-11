@@ -16,7 +16,7 @@
     +'10,11,12,13,14\n'
     +'20,21,22,23,24\n'
     +'30,31,32,33,34' */
-    
+
 //Pseudo-code:
 //Initialize variable to store new string name csvStr
 //Loop over array
@@ -39,3 +39,9 @@ console.log(toCsvText([
     [10,11,12,13,14],
     [20,21,22,23,24],
     [30,31,32,33,34]]));
+
+//Codewars solution:
+//You have to be shitting me!
+/* function toCsvText(array) {
+    return array.join('\n');
+ } */
