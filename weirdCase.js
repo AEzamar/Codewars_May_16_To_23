@@ -4,17 +4,20 @@ function toWeirdCase(string) {
     let weirdString = "";
     const lowStringArr = string.toLowerCase().split(" ");
     const testString = lowStringArr.map((str, idx) => {
-      console.log(str[idx]);
+      for(let i = 1, j = 0; i <= str.length; i++, j = j+2) {
+        str[j].toUpperCase() + str[i];
+      }
     })
+    console.log(testString);
   /*   for(let i = 0; i < lowStringArr.length; i++) {
       for(let j = 0, k = 1; j < lowStringArr[i].length; j+=2, k+=2) {
         weirdStringArr.push(lowStringArr[i][j].toUpperCase() + lowStringArr[i].slice(k, k + 1));
       }
     }  */      
-    //return weirdStringArr;
+    return weirdString;
   }
 
-console.log(toWeirdCase("Hello world!"));
+console.log(toWeirdCase("Hello world"));
 //console.log(toWeirdCase("ThIs iS A TeSt")); 
 
 function toWeirdCase1(string) {
