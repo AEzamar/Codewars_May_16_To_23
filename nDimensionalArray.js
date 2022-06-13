@@ -67,15 +67,73 @@ function createNDimensionalArray(n, size) {
     return outerArr;
 }
 
-console.log(createNDimensionalArray(3, 2));
+//console.log(createNDimensionalArray(3, 2));
 //sconsole.log(createNDimensionalArray(2, 2))
 
-
-/* const iterator = 0;
-while(iterator < n) {
-    outerArr.push([]);
-    if(n > 2) {
-        outerArr[0].push([]);
-    }
+function createNDimensionalArray1(n, size) {
+    let iterator = 0;
+    let outerArr = [[]];
+    while(iterator < n) {
+        if(n <= 2) {
+            outerArr[0].push(`level ${String(n)}`);
+        }else {
+            outerArr[0].push([`level ${String(n)}`]);
+        }
     iterator++;
-} */
+    }
+    return outerArr;
+}
+//console.log(createNDimensionalArray1(2, 2));
+//console.log(createNDimensionalArray1(3))
+function nestedArrays(n) {
+    let startArr = ["a"];
+    const staticIndex = 0;
+    let newArr;
+    for(let i = 0; i < n; i++) {
+        //newArr = Array.from({ length: 1 }, (_, i) => i = []);
+        let indexStr = `${startArr}`;
+        indexStr += `${[]}`;
+        console.log(indexStr);
+        //newArr = Array({ length: 1 }).fill([]);
+    }
+    return newArr;
+} 
+//console.log(nestedArrays(3));
+
+function createNDimensionalArray2(n, size) {
+    let outerArr;
+    for(let i = 0; i < n; i++) {
+        if(n <= 1) {
+            outerArr = [];
+            for(let j = 0; j < size; j++) {
+                outerArr.push(`level ${String(n)}`);
+            }
+        }else if(n <= 2) {
+            outerArr = [[]];
+            for(let j = 0; j < size;  j++) {
+                const innerArr = Array.from( {length: size}, (_, i) => i = `level ${String(n)}`)
+                outerArr[0].push(innerArr);
+            }
+        }else {
+            outerArr = [[]];
+            for(let j = 0; j < size; j++) {
+                const innerArr = Array.from({ length: size }, (_, i) => i = `level ${String(n)}`);
+                outerArr[0].push(innerArr);
+            }
+            
+        }
+    }
+    return outerArr;
+}
+/* console.log(createNDimensionalArray2(1, 3));
+console.log(createNDimensionalArray2(2, 2));
+console.log(createNDimensionalArray2(3, 3));
+console.log(createNDimensionalArray2(4, 3)); */
+
+function arrays(n, size) {
+    const newArr = Array(size).fill(`level ${n}`);
+    
+    
+}
+
+console.log(arrays(3, 2));
