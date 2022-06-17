@@ -18,9 +18,12 @@
 
 function createPhoneNumber(numbers) {
     const numStr = numbers.join("");
-    const phoneRegex = /(\d{3})(\d{3})(\d{4}) \1 \2 \3/g
+    const group1 = numbers.slice(0, 3).join("");
+    const group2 = numbers.slice(3, 6).join("");
+    const group3 = numbers.slice(6, 10).join("");
+    const phoneRegex = /(\d{3}\d{3})/g
     console.log(numStr.match(phoneRegex));
-    return numStr;
+    return `(${group1}) ${group2}-${group3}`;
 }
 
 console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
