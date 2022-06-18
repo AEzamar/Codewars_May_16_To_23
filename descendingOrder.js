@@ -25,7 +25,7 @@ function descendingOrder(n) {
     return Number(fullNumStr);
 }
 
-function descendingOrder(n) {
+function descendingOrder1(n) {
     const argsStr = String(...n).split("").map(str => Number(str)).sort((a, b) => b - a).join("");
     return Number(argsStr);
 }
