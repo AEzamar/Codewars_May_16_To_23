@@ -17,11 +17,10 @@
 //the last 2 groups of numbers
 
 function createPhoneNumber(numbers) {
-    const numStr = numbers.join("");
     const group1 = numbers.slice(0, 3).join("");
     const group2 = numbers.slice(3, 6).join("");
     const group3 = numbers.slice(6, 10).join("");
-    const phoneRegex = /(\d{3}\d{3})/g
+    const phoneRegex = /(\d{3})(\d{3})(\d{4})/g
     console.log(numStr.match(phoneRegex));
     return `(${group1}) ${group2}-${group3}`;
 }
