@@ -18,14 +18,32 @@
 //
 
 function isPrime(num) {
-    if(num < 2) return false;
-    if(num !== 2 || num % 2 === 0) return false;
-    for(let i = 2; i <= num - 1; i + 2) {
+    if(num === 2) return true;
+    if(num < 2 || !(num % 2)) return false;
+    for(let i = 3; i <= Math.sqrt(num); i++, i++) {
         if(num % i === 0) {
             return false;
-        }else {
-            return true;
         }
     }
-    
+    return true;
 }
+
+console.log(isPrime(2));
+console.log(isPrime(3));
+console.log(isPrime(4));
+console.log(isPrime(6));
+console.log(isPrime(9));
+console.log(isPrime(101));
+console.log(isPrime(102));
+console.log(isPrime(198));
+console.log(isPrime(199));
+
+//Codewars solution:
+/* function isPrime(num) {
+    for(let i = 2; i <= Math.sqrt(num); i++) {
+      if(num % i === 0) {
+        return false;
+      }
+    }
+    return num > 1
+  } */
