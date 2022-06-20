@@ -19,21 +19,50 @@
 
 function count(string) {
     let aCount = 0, bCount = 0;
-    let charObj = {
-        a: 0,
-        b: 0
-    }
+    let charObj = {}
     for(let i = 0; i < string.length; i++) {
         if(string[i] === 'a') {
             aCount++;
-            charObj[a] = aCount;
-        }
-        if(string[i] === 'b') {
+            charObj[string[i]] = aCount;
+        }else {
             bCount++;
-            charObj[b] = bCount;
+            charObj[string[i]] = bCount;
         }
     }
-    return charObj;
+    return string === "" ? {} : charObj;
 }
 
 console.log(count('abba'));
+console.log(count('aa'));
+console.log(count(""));
+
+/* function count (string) {
+    let aCount = 0, bCount = 0;
+    let charObj = { a: 0, b: 0 }
+    for(let i = 0; i < string.length; i++) {
+      string[i] === 'a' ? aCount++ : bCount++;
+      charObj.a = aCount;
+      charObj.b = bCount;
+    }
+    return string === "" ? {} : charObj;
+  } */
+
+  //Codewars solutions:
+  //Dude...
+  //const count = string => string.split('').reduce((counter, s) => { counter[s] = (counter[s] || 0) + 1;return counter; }, {});
+  //This one a little more readable:
+  /* function count (string) {  
+    var count = {};
+    string.split('').forEach(function(s) {
+       count[s] ? count[s]++ : count[s] = 1;
+    });
+    return count;
+  } */
+
+  //Another one:
+ /*  function count (string) {
+    return string.split('').reduce(function(counts,char){
+      counts[char] = (counts[char]||0) + 1;
+      return counts;
+    },{});
+  } */
