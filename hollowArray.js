@@ -25,7 +25,7 @@
 function isHollow(x) {
     let zeroCount = 0;
     let hollow = false;
-    const zeroRegex = /^[^0]\d*0|0[^0]\d$/g;
+    const zeroRegex = /^[^0]\d*0+|0+[^0]\d*$/g;
     const zeroRegex1 = /(?!0)/g;
     console.log(String(x));
     console.log(String(x).match(zeroRegex));
