@@ -24,21 +24,21 @@
 
 function isHollow(x) {
     let zeroCount = 0;
-  let hollow = false;
-  const zeroRegex = /^[^0]\d*0|0[^0]\d$/g;
-  const zeroRegex1 = /(?!0)/g;
-  console.log(String(x));
-  console.log(String(x).match(zeroRegex));
-  //console.log(String(x).match(zeroRegex1));
-  for(let i = 0; i < x.length; i++) {
-    if(x[i] === 0) {
-      zeroCount++;
-    }  
-    if(zeroCount >= 3) {
-      return hollow = true;
-    }else {
-     // return hollow = false;
+    let hollow = false;
+    const zeroRegex = /^[^0]\d*0|0[^0]\d$/g;
+    const zeroRegex1 = /(?!0)/g;
+    console.log(String(x));
+    console.log(String(x).match(zeroRegex));
+    //console.log(String(x).match(zeroRegex1));
+    for(let i = 0; i < x.length; i++) {
+        if(x[i] === 0) {
+            zeroCount++;
+        }  
+        if(zeroCount >= 3) {
+            return hollow = true;
+        }else {
+            // return hollow = false;
+        }
     }
-  }
   return 
 }
