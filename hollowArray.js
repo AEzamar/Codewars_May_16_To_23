@@ -141,15 +141,23 @@ function isHollow3(x) {
     const xCopy = x;
     const startArr = [];
     const endArr = [];
+    let indexer = 0;
+    while(xCopy[indexer] !== 0) {
+        indexer++;
+        startArr.push(xCopy[indexer]);
+    }
+
     for(let i = 0; i < xCopy.length; i++) {
         if(xCopy[i] !== 0) {
             startArr.push(xCopy.shift());
             if(xCopy[i] === 0) {
-                break;
+                //xCopy.reverse();
+                endArr.push(xCopy.pop());
             }
         }
     }
-    for(let j = 0; j < xCopy.reverse().length; j++) {
+    
+   /*  for(let j = 0; j < xCopy.reverse().length; j++) {
         xCopy.reverse();
         if(xCopy[j] !== 0) {
             endArr.push(xCopy.shift());
@@ -157,7 +165,7 @@ function isHollow3(x) {
                 break;
             }
         }
-    }
+    } */
     console.log('Start Arr:', startArr);
     console.log('End Arr:', endArr);
     console.log('Arr Copy:', xCopy);
@@ -169,4 +177,4 @@ function isHollow3(x) {
 }
 
 console.log(isHollow3([1, 2, 1, 1, 1, 0, 0, 4, 6, 1, 3]));
-console.log(isHollow3([-1,0,0,0,3]));
+//console.log(isHollow3([-1,0,0,0,3]));
