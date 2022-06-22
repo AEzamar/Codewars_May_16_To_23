@@ -137,38 +137,22 @@ function isHollow2(x) {
 //console.log(isHollow2([1, 2, 1, 1, 0, 0, 4, 6, 1]));
 
 
-function isHollow3(x) {
+function isHollow(x) {
     const xCopy = x;
     const startArr = [];
     const endArr = [];
-    let indexer = 0;
-    while(xCopy[indexer] !== 0) {
-        indexer++;
-        startArr.push(xCopy[indexer]);
+    if(xCopy[0] === 0 && xCopy[xCopy.length - 1] === 0) return false;
+    
+    while(xCopy[0] !== 0) {
+        startArr.push(xCopy.shift());
     }
 
-    for(let i = 0; i < xCopy.length; i++) {
-        if(xCopy[i] !== 0) {
-            startArr.push(xCopy.shift());
-            if(xCopy[i] === 0) {
-                //xCopy.reverse();
-                endArr.push(xCopy.pop());
-            }
-        }
+    xCopy.reverse();
+
+    while(xCopy[0] !== 0) {
+        endArr.push(xCopy.shift());
     }
-    
-   /*  for(let j = 0; j < xCopy.reverse().length; j++) {
-        xCopy.reverse();
-        if(xCopy[j] !== 0) {
-            endArr.push(xCopy.shift());
-            if(xCopy[j] === 0) {
-                break;
-            }
-        }
-    } */
-    console.log('Start Arr:', startArr);
-    console.log('End Arr:', endArr);
-    console.log('Arr Copy:', xCopy);
+   
     if(startArr.length === endArr.length && xCopy.length >= 3) {
         return true;
     }else {
@@ -176,5 +160,6 @@ function isHollow3(x) {
     }
 }
 
-console.log(isHollow3([1, 2, 1, 1, 1, 0, 0, 4, 6, 1, 3]));
-//console.log(isHollow3([-1,0,0,0,3]));
+console.log(isHollow([1, 2, 1, 1, 1, 4, 0, 0, 4, 6, 1, 3, 3, 1]));
+console.log(isHollow([-1,0,0,0,3]));
+console.log(isHollow([0, 0, 0, 0]));
