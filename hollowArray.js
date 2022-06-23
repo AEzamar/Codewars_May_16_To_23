@@ -25,47 +25,63 @@
 function isHollow(x) {
     let leftNonZero = 0;
     let rightNonZero = 0;
+    if(x.length >= 3 && x.every(num => num === 0)) return true;
     for(let i = 0; i < x.length; i++) {
         if(x[i] !== 0) leftNonZero++
         else break;
     }
     
-    console.log('Left Non Zero:', leftNonZero);
-
     for(let j = x.length - 1; j > 0; j--) {
         if(x[j] !== 0) rightNonZero++;
         else break;
     }
 
-    console.log('Right Non zero:', rightNonZero);
-    for(let k = leftNonZero; k < x.length - leftNonZero; k++) {
-        console.log(x[k]);
-    }
-
     if(leftNonZero === rightNonZero) {
-        x.slice(x[leftNonZero], x.length - leftNonZero).every(num => num === 0) ? true : false;
-        /* for(let k = leftNonZero; k < x.length - leftNonZero; k++) {
-            /* console.log('Iterations:', x[k]);
-            console.log(x.indexOf(x[leftNonZero]));
-            console.log(x.length - leftNonZero); */
-
-            /* if(x[k].every(num => num === 0)) {
-                return true;
-            }else {
-                return false;
-            } */
-    //}
+        return x.slice(x[leftNonZero], x.length - leftNonZero).every(num => num === 0) ? true : false;
     }else {
         return false;
     }
-
-  /*   if(x[0] !== 0 && x[x.length - 1] !== 0) {
-        if(x[1] === 0) {
-            x.indexOf(x[1]).every(num => num === 0)
-        }
-    }else {
-        return false;
-    } */   
 }
 
-console.log(isHollow([1, 2, 3, 0, 0, 1, 0, 0, 1, 2, 3]));
+/* console.log(isHollow([1, 2, 3, 0, 0, 1, 0, 0, 1, 2, 3]));
+console.log(isHollow([0, 0, 0, 0]));
+console.log(isHollow([0, 1, 2, 0, 0, 1, 0, 1]));
+console.log(isHollow([1, 2, 3, 0, 1, 1, 0, 1, 2, 3])); */
+
+
+//This kind of works but it fails 1 test
+
+function isHollow1(x){
+    console.log('Array', x);
+    //if(x.every(num => num === 0) && x.length >= 3) return true;
+    if(x.filter(num => num !== 0).length % 2 === 0) {
+      return x.filter(num => num === 0).length >= 3 ? true : false;
+    }else {
+      return false;
+    }
+  }
+
+//console.log(isHollow1([0, 1, 0, 0, 0, 1, 0]));
+
+  function isHollow2(x) {
+    let leftNonZero = 0;
+    let rightNonZero = 0;
+    for(let i = 0; i < x.length; i++) {
+        /* if(x[i] !== 0) leftNonZero++;
+        else break; */  
+        x.slice(x[0], x[i] !== 0)
+    }
+    
+    x.reverse();
+
+    for(let j = 0; j < x.lenth; j++) {
+        if(x[i] !== 0) rightNonZero++;
+        else break;
+    }
+    
+    const middleSlice = x.slice(x[leftNonZero], x[x.length - rightNonZero]).every(num => num === 0);
+    if(leftNonZero === rightNonZero && middleSlice.length >= 3) return true;
+    else return false;
+  }
+
+  console.log(isHollow2([1, 1, 0, 0, 0, 1, 1]));
