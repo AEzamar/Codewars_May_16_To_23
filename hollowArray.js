@@ -51,7 +51,7 @@ console.log(isHollow([1, 2, 3, 0, 1, 1, 0, 1, 2, 3])); */
 
 //This kind of works but it fails 1 test
 
-function isHollow1(x){
+/* function isHollow1(x){
     console.log('Array', x);
     //if(x.every(num => num === 0) && x.length >= 3) return true;
     if(x.filter(num => num !== 0).length % 2 === 0) {
@@ -59,29 +59,56 @@ function isHollow1(x){
     }else {
       return false;
     }
-  }
+  } */
 
 //console.log(isHollow1([0, 1, 0, 0, 0, 1, 0]));
 
   function isHollow2(x) {
-    let leftNonZero = 0;
-    let rightNonZero = 0;
-    for(let i = 0; i < x.length; i++) {
+    /* let leftNonZero = 0;
+    let rightNonZero = 0; */
+    let leftSlice;
+    let rightSlice;
+    for(let i = 0; i <= x.length; i++) {
         /* if(x[i] !== 0) leftNonZero++;
         else break; */  
-        x.slice(x[0], x[i] !== 0)
+        leftSlice = x.slice(x[i], (x[i] !== 0) + 1);
     }
+    console.log(leftSlice);
     
     x.reverse();
 
     for(let j = 0; j < x.lenth; j++) {
-        if(x[i] !== 0) rightNonZero++;
-        else break;
+        /* if(x[i] !== 0) rightNonZero++;
+        else break; */
+        rightSlice = x.slice(x[i], (x[i] !== 0) + 1);
+    }
+
+    if(leftSlice.length === rightSlice.length) {
+        return x.slice(x[leftSlice.length], x.length - leftNonZero).every(num => num === 0) ? true : false;
     }
     
-    const middleSlice = x.slice(x[leftNonZero], x[x.length - rightNonZero]).every(num => num === 0);
+  /*   const middleSlice = x.slice(x[leftNonZero], x[x.length - rightNonZero]).every(num => num === 0);
     if(leftNonZero === rightNonZero && middleSlice.length >= 3) return true;
-    else return false;
+    else return false; */
   }
 
-  console.log(isHollow2([1, 1, 0, 0, 0, 1, 1]));
+  //console.log(isHollow2([1, 1, 0, 0, 0, 1, 1]));
+
+  function isHollow3(x) {
+    if(x.length >= 3 && x.every(num => num === 0)) return true;
+    let leftSlice;
+    let rightSlice;
+    for(let i = 0; i <= x.length; i++) { 
+        leftSlice = x.slice(x[i], (x[i] !== 0) + 1);
+    }    
+
+    x.reverse();
+
+    for(let j = 0; j < x.lenth; j++) {
+        rightSlice = x.slice(x[i], (x[i] !== 0) + 1);
+    }
+
+    if(leftSlice.length === rightSlice.length) {
+        return x.slice(x[leftSlice.length], x.length - leftNonZero.length).every(num => num === 0) ? true : false;
+    }
+  }
