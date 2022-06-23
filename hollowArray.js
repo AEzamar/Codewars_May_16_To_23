@@ -22,144 +22,50 @@
 //if there's at least 3 zeros followed by a number that is not 0 return true
 //else return false
 
-/* function isHollow(x) {
-    let zeroCount = 0;
-    let hollow = false;
-    const zeroRegex = /^[^0]\d*0+|0+[^0]\d*$/g;
-    const zeroRegex1 = /(?!0)/g;
-    console.log(String(x));
-    console.log(String(x).match(zeroRegex));
-    //console.log(String(x).match(zeroRegex1));
+function isHollow(x) {
+    let leftNonZero = 0;
+    let rightNonZero = 0;
     for(let i = 0; i < x.length; i++) {
-        if(x[i] === 0) {
-            zeroCount++;
-        }  
-        if(zeroCount >= 3) {
-            return hollow = true;
-        }else {
-            // return hollow = false;
-        }
+        if(x[i] !== 0) leftNonZero++
+        else break;
     }
-  return 
-} */
+    
+    console.log('Left Non Zero:', leftNonZero);
 
-function isHollow1(x) {
-    //let zeroCount1 = 0;
-    let hollow = false;
-    let notZeroStart = 0;
-    let notZeroEnd = 0;
-    function filterNonZero(arr) {
-        let indexer = 0;
-        let filteredArr = [];
-        while(arr[indexer] !== 0) {
-            if(arr[indexer] === 0) break;
-            filteredArr.push(arr[indexer]);
-            indexer++
-        }
-        return filteredArr;
-    }
-    console.log(filterNonZero(x));
-    const noZeroArr = x.filter(filterNonZero);
-    console.log('No zero arr', noZeroArr);
-    console.log('Arr:', x);
-    console.log('Arr[0]:', x[0], 'Arr[-1]:', x[x.length - 1]);4
-    console.log(x[x.length - 2]);
-    for(let i = 0; i < x.length; i++) {
-        if(x[i] !== 0) {
-            notZeroStart++;
-        }
-    }
-    for(let j = x[x.length - 1]; j > 0; j--) {
-        if(x[j] !== 0) {
-            notZeroEnd++;
-        }
-    }
-    if(notZeroStart === notZeroEnd) {
-        return x.filter(ele => ele === 0).length >= 3 ? hollow = true : hollow = false;
-    }
-    /* if(x[0] !== 0 && x[x.length - 1] !== 0) {
-        const arrStart = x.filter(ele => ele !== 0);
-        console.log(arrStart);
-        return x.filter(ele => ele === 0).length >= 3 ? hollow = true : hollow = false;
-    }else {
-            return false;
-    } */
-}
-
-//console.log(isHollow1([3, 4, 3, 0, 0, 0, 0, 0, 0, 6, 1]));
-
-function isHollow2(x) {
-    const xCopy = x;
-    const startArr = [];
-    const endArr = [];
-   /*  let it = 0;
-    while(it <= x.length) {
-        startArr.push(xCopy.shift());
-        if(xCopy[it] === 0) {
-            break;
-        }
-        it++;        
-    } */
-
-    for(let i = 0; i <= x.length; i++) {
-        if(xCopy[i] !== 0) {
-            startArr.push(xCopy.shift());
-            endArr.push(xCopy.pop());
-            console.log(startArr);
-        }/* else if(xCopy[i] === 0) {
-            break;
-        }   */  
+    for(let j = x.length - 1; j > 0; j--) {
+        if(x[j] !== 0) rightNonZero++;
+        else break;
     }
 
-     //console.log('Splice start:', spliceStart); 
+    console.log('Right Non zero:', rightNonZero);
+    for(let k = leftNonZero; k < x.length - leftNonZero; k++) {
+        console.log(x[k]);
+    }
 
-    /* if(xCopy[xCopy.length - 1] !== 0) {
-        for(let j = xCopy.length - 1; j > 0; j--) {
-            endArr.push(xCopy.pop());
-        }
-    } */
-        /* if(xCopy[i] !== 0) {
-            startArr.push(xCopy.shift());
-        }else if(xCopy[xCopy.length - 1] !== 0) {
-            endArr.push(xCopy.pop());
-        } */
+    if(leftNonZero === rightNonZero) {
+        x.slice(x[leftNonZero], x.length - leftNonZero).every(num => num === 0) ? true : false;
+        /* for(let k = leftNonZero; k < x.length - leftNonZero; k++) {
+            /* console.log('Iterations:', x[k]);
+            console.log(x.indexOf(x[leftNonZero]));
+            console.log(x.length - leftNonZero); */
+
+            /* if(x[k].every(num => num === 0)) {
+                return true;
+            }else {
+                return false;
+            } */
     //}
-    console.log('Start arr:', startArr);
-    console.log('End arr:', endArr);
-    console.log('Arr Copy:', xCopy);
-    if(startArr.length === endArr.length && xCopy.length >= 3) {
-        return true;
     }else {
         return false;
     }
-}
 
-//console.log(isHollow2([1, 2, 1, 1, 0, 0, 4, 6, 1]));
-
-
-function isHollow(x) {
-    const xCopy = x;
-    const startArr = [];
-    const endArr = [];
-    if(xCopy[0] === 0 && xCopy[xCopy.length - 1] === 0) return false;
-    
-    while(xCopy[0] !== 0) {
-        startArr.push(xCopy.shift());
-    }
-
-    xCopy.reverse();
-
-    while(xCopy[0] !== 0) {
-        endArr.push(xCopy.shift());
-    }
-   
-    if(startArr.length === endArr.length && xCopy.length >= 3) {
-        return true;
+  /*   if(x[0] !== 0 && x[x.length - 1] !== 0) {
+        if(x[1] === 0) {
+            x.indexOf(x[1]).every(num => num === 0)
+        }
     }else {
-        return false;   
-    }
+        return false;
+    } */   
 }
 
-console.log(isHollow([1, 2, 1, 1, 1, 4, 0, 0, 4, 6, 1, 3, 3, 1]));
-console.log(isHollow([-1,0,0,0,3]));
-console.log(isHollow([0, 0, 0, 0]));
+console.log(isHollow([1, 2, 3, 0, 0, 1, 0, 0, 1, 2, 3]));
