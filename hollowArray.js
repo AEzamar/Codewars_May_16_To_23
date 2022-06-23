@@ -109,6 +109,9 @@ console.log(isHollow([1, 2, 3, 0, 1, 1, 0, 1, 2, 3])); */
     }
 
     if(leftSlice.length === rightSlice.length) {
+        console.log(x[leftSlice.length]);
         return x.slice(x[leftSlice.length], x.length - leftNonZero.length).every(num => num === 0) ? true : false;
     }
   }
+
+console.log(isHollow3([1, 2, 0, 0, 2, 1]));
