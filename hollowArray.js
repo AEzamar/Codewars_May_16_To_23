@@ -94,24 +94,48 @@ console.log(isHollow([1, 2, 3, 0, 1, 1, 0, 1, 2, 3])); */
 
   //console.log(isHollow2([1, 1, 0, 0, 0, 1, 1]));
 
-  function isHollow3(x) {
-    if(x.length >= 3 && x.every(num => num === 0)) return true;
+function isHollow3(x) {
+    if(x.every(num => num === 0) && x.length >= 3) return true;
     let leftSlice;
     let rightSlice;
     for(let i = 0; i <= x.length; i++) { 
-        leftSlice = x.slice(x[i], (x[i] !== 0) + 1);
-    }    
-
-    x.reverse();
-
-    for(let j = 0; j < x.lenth; j++) {
-        rightSlice = x.slice(x[i], (x[i] !== 0) + 1);
+        leftSlice = x.slice(x[i], x.indexOf(x[i] !== 0));
     }
+    x.reverse();
+    for(let j = 0; j <= x.length; j++) {
+        rightSlice = x.slice(x[j], (x[j] !== 0) + 1);
+    }
+    console.log('Left:', leftSlice);
+    console.log('Right:', rightSlice);
+    const middleSlice = x.slice(x.indexOf(x[leftSlice.length]), x.length - leftSlice.length);
 
-    if(leftSlice.length === rightSlice.length) {
-        console.log(x[leftSlice.length]);
-        return x.slice(x[leftSlice.length], x.length - leftNonZero.length).every(num => num === 0) ? true : false;
+    if(leftSlice.length === rightSlice.length && middleSlice.every(num => num === 0) && middleSlice.length >= 3) {
+        return true;
+    }else {
+        return false;
     }
   }
 
-console.log(isHollow3([1, 2, 0, 0, 2, 1]));
+console.log(isHollow3([2, 2, 2, 0, 0, 0, 3, 3, 3]));
+//console.log(isHollow3([0, 0, 0]));
+
+//////////////////////////////FAILED KATA///////////////////////////
+
+//Codewars solutions:
+
+/* function isHollow(x){
+    while(x.length >= 3 && x[0] != 0 && x[x.length-1] != 0){
+      x.shift();
+      x.pop();
+    }
+    return /^[0]{3,}$/g.test(x.join(''));
+  } */
+///////////////////////////////////////////////////////////////
+  /* function isHollow(x){  
+    while(x.length > 2 && x[0] !== 0 && x[x.length-1] !== 0){
+      x.shift();
+      x.pop();
+    }
+    
+    return x.length > 2 && x.every(i => i === 0);
+  } */
