@@ -36,4 +36,4 @@ function peak(arr) {
     console.log(arr.indexOf(arrCopy[0]));
 }
 
-console.log(peak([1,2,3,5,3,2,1]));
+console.log(peak([1,2,3,5,3,2,1])); 
