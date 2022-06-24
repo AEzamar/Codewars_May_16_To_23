@@ -24,16 +24,32 @@
 //If the operation is unsuccesful we should get an empty array and return -1
 
 function peak(arr) {
-    const arrCopy = arr;
+    const arrCopy = [...arr];
     let leftSum, rightSum;
-    for(let i = 0; i < arrCopy.lengt; i++) {
-        leftSum += arrCopy.shift();
-        rightSum += arrCopy.pop();
+
+    /* for(let i = 0; i < arrCopy.length; i++) {
         if(leftSum === rightSum) {
-            return arr.IndexOf(arrCopy[0]);
+            leftSum = arrCopy.shift();
+            rightSum = arrCopy.pop();
+        }
+        if(leftSum !== rightSum) {
+            return arr.indexOf(arrCopy[0]);
+        }
+    } */
+
+    while(leftSum === rightSum && arrCopy.length > 1) {
+        /* console.log('Arr Copy:', arrCopy);
+        console.log('Arr:', arr); */
+        leftSum = arrCopy.shift();
+        rightSum = arrCopy.pop();
+        if(leftSum !== rightSum) {
+            return arrCopy;
+            //return arr.indexOf(arrCopy[0]);
         }
     }
-    console.log(arr.indexOf(arrCopy[0]));
+    /* console.log('Arr Copy:', arrCopy);
+    console.log(arr); */
+    //console.log(arr.indexOf(arrCopy[0]));
 }
 
 console.log(peak([1,2,3,5,3,2,1])); 
