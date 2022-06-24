@@ -26,30 +26,15 @@
 function peak(arr) {
     const arrCopy = [...arr];
     let leftSum, rightSum;
-
-    /* for(let i = 0; i < arrCopy.length; i++) {
-        if(leftSum === rightSum) {
-            leftSum = arrCopy.shift();
-            rightSum = arrCopy.pop();
-        }
-        if(leftSum !== rightSum) {
-            return arr.indexOf(arrCopy[0]);
-        }
-    } */
-
     while(leftSum === rightSum && arrCopy.length > 1) {
-        /* console.log('Arr Copy:', arrCopy);
-        console.log('Arr:', arr); */
         leftSum = arrCopy.shift();
         rightSum = arrCopy.pop();
         if(leftSum !== rightSum) {
-            return arrCopy;
-            //return arr.indexOf(arrCopy[0]);
+            return arr.indexOf(arrCopy[0]);
         }
     }
-    /* console.log('Arr Copy:', arrCopy);
-    console.log(arr); */
-    //console.log(arr.indexOf(arrCopy[0]));
+    return arr.indexOf(arrCopy[0]);
 }
 
 console.log(peak([1,2,3,5,3,2,1])); 
+console.log(peak([1,12,3,3,6,3,1]));
