@@ -29,8 +29,11 @@ function peak(arr) {
     for(let i = 0; i < arrCopy.lengt; i++) {
         leftSum += arrCopy.shift();
         rightSum += arrCopy.pop();
-        /* if(leftSum === rightSum) {
-            return arr.firstIndex(arrCopy[0]);
-        } */
+        if(leftSum === rightSum) {
+            return arr.IndexOf(arrCopy[0]);
+        }
     }
+    console.log(arr.indexOf(arrCopy[0]));
 }
+
+console.log(peak([1,2,3,5,3,2,1]));
