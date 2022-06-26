@@ -108,6 +108,18 @@ function zeroPlentiful3(arr) {
   return sequenceCount; 
 }
 
-console.log(zeroPlentiful3([0, 0, 0, 4, 1, 2, 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0, 0]));
+/* console.log(zeroPlentiful3([0, 0, 0, 4, 1, 2, 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0, 0]));
 console.log(zeroPlentiful3([0, 0, 0, 0, 0]));
-console.log(zeroPlentiful3([0, 0, 0, 0, 1, 0, 0, 0, 0, 0]));
+console.log(zeroPlentiful3([0, 0, 0, 0, 1, 0, 0, 0, 0, 0])); */
+
+function zeroPlentiful4(arr) {
+  let zeroCount = 0, sequenceCount = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === 0) {
+      zeroCount++;
+    }else {
+      zeroCount = 0;
+    }
+  }
+  return zeroCount >= 4 ? sequenceCount++ : sequenceCount;
+}
