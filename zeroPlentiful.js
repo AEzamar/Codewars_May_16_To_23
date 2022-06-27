@@ -123,3 +123,5 @@ function zeroPlentiful4(arr) {
   }
   return zeroCount >= 4 ? sequenceCount++ : sequenceCount;
 }
+
+console.log(zeroPlentiful4([1, 2, 0, 0, 1, 3, 0, 0, 0, 1, 2]));
