@@ -117,14 +117,14 @@ function zeroPlentiful4(arr) {
   for(let i = 0; i <= arr.length; i++) {
     if(arr[i] === 0) {
       zeroCount++;
-      console.log('Zero count:', zeroCount);
+      //console.log('Zero count:', zeroCount);
       if(zeroCount >= 4) {
         outerCount++;
         sequenceCount++;
-        console.log('Outer Count:', outerCount);
+        //console.log('Outer Count:', outerCount);
       }else {
         sequenceCount = 0;
-        console.log('Sequence Count:', sequenceCount)
+        //console.log('Sequence Count:', sequenceCount)
       }
      /*  zeroCount++;
       console.log('Zero Count', zeroCount);
