@@ -23,10 +23,19 @@
 
 function transposeTwoStrings(array) {
     let transposeStr = "";
-    for(let i = 0; i < array[0].length; i++) {
-        transposeStr += `${array[0][i]} ${array[1][i]}${/\n/}`;
+    if(array[0].length > array[1].length) {
+        for(let i = 0; i < array[0].length; i++) {
+            transposeStr += `${array[0][i]} ${array[1][i]}\n`;
+        }
+    }
+
+    if(array[1].length > array[0].length) {
+        for(let i = 0; i < array[1].length; i++) {
+            transposeStr += `${array[0][i]} ${array[1][i]}\n`;
+        }
     }
     return transposeStr;
 }
 
 console.log(transposeTwoStrings(['Hello', 'World']));
+console.log(transposeTwoStrings(['Hello', 'Bitches']))
