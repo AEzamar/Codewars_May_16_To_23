@@ -25,12 +25,18 @@ function transposeTwoStrings(array) {
     let transposeStr = "";
     if(array[0].length > array[1].length) {
         for(let i = 0; i < array[0].length; i++) {
-            transposeStr += `${array[0][i]} ${array[1][i]}\n`;
+            if(array[1][i] === undefined) array[1].replace(array[1][i], "");
+            transposeStr += `${array[0][i]} ${array[1][i] === undefined ? array[1][i] = " " : array[1][i]}\n`;
         }
     }
-
     if(array[1].length > array[0].length) {
         for(let i = 0; i < array[1].length; i++) {
+            if(array[0][i] === undefined) array[0].replace(array[0][i], "");
+            transposeStr += `${array[0][i] === undefined ? array[0][i] = " " : array[0][i]} ${array[1][i]}\n`;
+        }
+    }
+    if(array[0].length === array[1].length) {
+        for(let i = 0; i < array[0].length; i++) {
             transposeStr += `${array[0][i]} ${array[1][i]}\n`;
         }
     }
@@ -38,4 +44,5 @@ function transposeTwoStrings(array) {
 }
 
 console.log(transposeTwoStrings(['Hello', 'World']));
-console.log(transposeTwoStrings(['Hello', 'Bitches']))
+console.log(transposeTwoStrings(['Hello', 'Bitches']));
+console.log(transposeTwoStrings(['Transpose', 'This']));
