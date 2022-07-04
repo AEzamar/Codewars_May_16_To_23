@@ -113,12 +113,14 @@ console.log(zeroPlentiful3([0, 0, 0, 0, 0]));
 console.log(zeroPlentiful3([0, 0, 0, 0, 1, 0, 0, 0, 0, 0])); */
 
 function zeroPlentiful4(arr) {
+  if(!arr.includes(0)) return 0;
+  if(arr.every(num => num === 0) && arr.length >= 4) return 1;
   let zeroCount = 0, sequenceCount = 0, outerCount = 0;
   for(let i = 0; i <= arr.length; i++) {
     if(arr[i] === 0) {
       zeroCount++;
       //console.log('Zero count:', zeroCount);
-      if(zeroCount >= 4) {
+      if(zeroCount > 3) {
         outerCount++;
         sequenceCount++;
         //console.log('Outer Count:', outerCount);
@@ -153,3 +155,21 @@ function zeroPlentiful5(arr) {
     zeroCount >= 4 ? sequenceCount++ : sequenceCount;
   }
 }
+
+//This is te solution I had in localStorage in codewars
+/* function zeroPlentiful(arr) {
+  let sequenceCount = 0, iterator = 0;
+  if(arr.every(num => num === 0)) return sequenceCount = 1;
+  if(!arr.includes(0)) sequenceCount = 0;
+  const arrCopy = arr;
+  while(arrCopy[iterator] === 0 && arrCopy.length >= 4) {
+    arrCopy.shift()
+    iterator++;
+    sequenceCount++;
+    if(arrCopy[iterator] !== 0) {
+      sequenceCount = 0;
+      break;
+    }
+  }
+  return sequenceCount++;
+} */
