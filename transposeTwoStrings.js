@@ -46,3 +46,12 @@ function transposeTwoStrings(array) {
 console.log(transposeTwoStrings(['Hello', 'World']));
 console.log(transposeTwoStrings(['Hello', 'Bitches']));
 console.log(transposeTwoStrings(['Transpose', 'This']));
+
+function transposeTwoStrings1(array) {
+    let transposeStr = "";
+    array[0].length > array[1].length ? array.map((ele, index, arr) => transposeStr += `${ele} ${ele === undefined ? ele = " " : ele}\n`) : array.map((ele, index, arr) => transposeStr += `${arr[0][index] === undefined ? arr[0][index] = " " : arr[0][index]} ${arr[1][index]}\n`);
+    //array[0].length > array[1].length ? transposeStr += `${array[0].map(ele => ele)} ${array[1].map()}` : 
+    return transposeStr;
+}
+
+console.log(transposeTwoStrings1(['Hello', 'World']));
