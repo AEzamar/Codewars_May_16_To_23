@@ -109,6 +109,7 @@ function zeroPlentiful3(arr) {
 }
 
 /* console.log(zeroPlentiful3([0, 0, 0, 4, 1, 2, 0, 0, 0, 0, 3, 1, 2, 0, 0, 0, 0, 0]));
+console.log(zeroPlentiful3([0, 0, 0, 0, 0]));
 console.log(zeroPlentiful3([0, 0, 0, 0, 1, 0, 0, 0, 0, 0])); */
 
 function zeroPlentiful4(arr) {
