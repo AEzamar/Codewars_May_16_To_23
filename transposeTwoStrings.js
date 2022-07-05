@@ -25,17 +25,13 @@ function transposeTwoStrings(array) {
     let transposeStr = "";
     if(array[0].length > array[1].length) {
         for(let i = 0; i < array[0].length; i++) {
-            if(array[1][i] === undefined) array[1].replace(array[1][i], "");
             transposeStr += `${array[0][i]} ${array[1][i] === undefined ? array[1][i] = " " : array[1][i]}\n`;
         }
-    }
-    if(array[1].length > array[0].length) {
+    }else if(array[1].length > array[0].length) {
         for(let i = 0; i < array[1].length; i++) {
-            if(array[0][i] === undefined) array[0].replace(array[0][i], "");
             transposeStr += `${array[0][i] === undefined ? array[0][i] = " " : array[0][i]} ${array[1][i]}\n`;
         }
-    }
-    if(array[0].length === array[1].length) {
+    }else {
         for(let i = 0; i < array[0].length; i++) {
             transposeStr += `${array[0][i]} ${array[1][i]}\n`;
         }
@@ -44,14 +40,23 @@ function transposeTwoStrings(array) {
 }
 
 console.log(transposeTwoStrings(['Hello', 'World']));
-console.log(transposeTwoStrings(['Hello', 'Bitches']));
+console.log(transposeTwoStrings(['Hello', 'People']));
 console.log(transposeTwoStrings(['Transpose', 'This']));
 
 function transposeTwoStrings1(array) {
-    let transposeStr = "";
-    array[0].length > array[1].length ? array.map((ele, index, arr) => transposeStr += `${ele} ${ele === undefined ? ele = " " : ele}\n`) : array.map((ele, index, arr) => transposeStr += `${arr[0][index] === undefined ? arr[0][index] = " " : arr[0][index]} ${arr[1][index]}\n`);
+    let transposeStr = '';
+    let transposeTest =  ' '+' ';
+    transposeTest[0] += 'a'
+    console.log('Str1:', transposeTest);
+    array.map((ele, index, arr) => {
+        for(let char of arr[0]) transposeTest[0] += `${char}\n`;
+        for(let char of arr[1]) transposeTest[1] += `${char}\n`;
+    });
+    console.log(transposeTest);
+    //array[0].length > array[1].length ? array.map((ele, index, arr) => transposeStr += `${arr[arr.length]} ${ele === undefined ? ele = " " : ele}\n`) : array.map((ele, index, arr) => transposeStr += `${arr[0][index] === undefined ? arr[0][index] = " " : arr[0][index]} ${arr[1][index]}\n`);
     //array[0].length > array[1].length ? transposeStr += `${array[0].map(ele => ele)} ${array[1].map()}` : 
-    return transposeStr;
+    //return transposeStr;
+    return transposeTest;
 }
 
 console.log(transposeTwoStrings1(['Hello', 'World']));
