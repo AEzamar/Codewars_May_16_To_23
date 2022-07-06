@@ -40,9 +40,9 @@ function transposeTwoStrings(array) {
     return transposeStr;
 }
 
-console.log(transposeTwoStrings(['Hello', 'World']));
+/* console.log(transposeTwoStrings(['Hello', 'World']));
 console.log(transposeTwoStrings(['Hello', 'People']));
-console.log(transposeTwoStrings(['Transpose', 'This']));
+console.log(transposeTwoStrings(['Transpose', 'This'])); */
 
 function transposeTwoStrings1(array) {
     let transposeStr = '';
