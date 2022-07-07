@@ -89,7 +89,7 @@ function transposeTwoStrings3(array) {
     let transposeStr = "";
     const diff = array[1].length - array[0].length;
     while(i < (array[0].length + diff)) {
-        transposeStr += `${array[0][i] === undefined ? array[0][i] = " " : array[0][i]} ${array[1][i] === undefined ? array[1][i] = " " : array[1][i]}\n`
+        transposeStr += `${array[0][i] || ' '}` `${array[1][i] || ' '}\n`;
         i++;
     }
     return transposeStr;
