@@ -92,7 +92,7 @@ function transposeTwoStrings3(array) {
         transposeStr += `${array[0][i] || ' '}` `${array[1][i] || ' '}\n`;
         i++;
     }
-    return transposeStr;
+    return transposeStr.slice(0,-1);
 }
 console.log(transposeTwoStrings3(['Hello', 'World']));
 console.log(transposeTwoStrings3(['Hello', 'People']));
