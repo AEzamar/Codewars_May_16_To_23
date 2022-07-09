@@ -22,3 +22,14 @@
 //sub array
 //if the iteration number is not equal to the length of a given sub-array return the iteration number
  
+function getLengthOfMissingArray(array) {
+    const sortedLenArr =  array.map(arr => {
+        arr.sort((a, b) => a.length - b.length);
+    });
+    for(let i = 0; i < sortedLenArr.length; i++) {
+        if(sortedLenArr[i].length !== i) {
+            return i;
+        }
+    }
+}
+console.log(getLengthOfMissingArray([[ 1, 2 ], [ 4, 5, 1, 1 ], [ 1 ], [ 5, 6, 7, 8, 9 ]]));
