@@ -24,17 +24,21 @@
  
 function getLengthOfMissingArray(array) {
     const sortedArr = array.sort((a, b) => a.length - b.length);
-    //let missingLen;
+    let missingLen;
     let next;
-    for(let i = 0; i + 1 < sortedArr.length; i++) {
-        console.log(i);
+    for(let i = 0; i < sortedArr.length; i++) {
+        const indexOne = i + 1;
+        if(sortedArr[i].length !== indexOne + 1) {
+            console.log('sub-arr len:', sortedArr[i].length, 'IndexOne', indexOne + 1);
+            missingLen = indexOne + 1;
+        }
        /*  if(sortedArr[i].length !== i + 1 || sortedArr[i].length + 1 !== i + 1) {
             missingLen = i;
             return missingLen;
         } */
     //console.log('Sub-array length:', sortedArr[i].length, 'Iteration:', i + 1)
     }
-    return array;
+    return missingLen;
 }
 
 console.log(getLengthOfMissingArray([[ 1, 2 ], [ 4, 5, 1, 1 ], [ 1 ], [ 5, 6, 7, 8, 9 ]]));
