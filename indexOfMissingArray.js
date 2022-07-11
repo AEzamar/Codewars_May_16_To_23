@@ -27,12 +27,12 @@ function getLengthOfMissingArray(array) {
     //let missingLen;
     let next;
     for(let i = 0; i + 1 < sortedArr.length; i++) {
-        if(sortedArr[i].length !== i) console.log(i);
+        console.log(i);
        /*  if(sortedArr[i].length !== i + 1 || sortedArr[i].length + 1 !== i + 1) {
             missingLen = i;
             return missingLen;
         } */
-    console.log('Sub-array length:', sortedArr[i].length, 'Iteration:', i + 1)
+    //console.log('Sub-array length:', sortedArr[i].length, 'Iteration:', i + 1)
     }
     return array;
 }
