@@ -25,7 +25,7 @@
 function getLengthOfMissingArray(array) {
     const sortedArr = array.sort((a, b) => a.length - b.length);
     let missingLen;
-    for(let i = 0; i < sortedArr.length; i++) {
+    for(let i = 0; i <= sortedArr.length; i++) {
         if(sortedArr[i].length !== i + 1 || sortedArr[i].length + 1 !== i + 1) {
             missingLen = i;
             return missingLen;
