@@ -22,9 +22,9 @@
 //sub array
 //if the iteration number is not equal to the length of a given sub-array return the iteration number
  
-function getLengthOfMissingArray(array) {
-    if(array.length === 0) return 0;
-    const sortedArr = array.sort((a, b) => a.length - b.length);
+function getLengthOfMissingArray(arrayOfArrays) {
+    if(arrayOfArrays.length === 0) return 0;
+    const sortedArr = arrayOfArrays.sort((a, b) => a.length - b.length);
     let missingLen;
     for(let i = 0; i < sortedArr.length; i++) {
         const indexOne = i + 1;
@@ -36,8 +36,13 @@ function getLengthOfMissingArray(array) {
     return missingLen;
 }
 
-console.log(getLengthOfMissingArray([[ 1, 2 ], [ 4, 5, 1, 1 ], [ 1 ], [ 5, 6, 7, 8, 9 ]]));
-console.log(getLengthOfMissingArray([[2, 3, 1, 2], [1], [1, 0, 9], [2, 1, 9, 9, 1]]));
+/* console.log(getLengthOfMissingArray([[ 1, 2 ], [ 4, 5, 1, 1 ], [ 1 ], [ 5, 6, 7, 8, 9 ]]));
+console.log(getLengthOfMissingArray([[2, 3, 1, 2], [1], [1, 0, 9], [2, 1, 9, 9, 1]])); */
 //console.log(getLengthOfMissingArray([[4, 1, 2, 3, 4, 5], [1, 2, 3], [0, 1], [0, 1, 1, 4]]));
+
+console.log(getLengthOfMissingArray([ [ 1, 2 ], [ 4, 5, 1, 1 ], [ 1 ], [ 5, 6, 7, 8, 9 ]]));
+console.log(getLengthOfMissingArray([ [ 5, 2, 9 ], [ 4, 5, 1, 1 ], [ 1 ], [ 5, 6, 7, 8, 9 ]]));
+console.log(getLengthOfMissingArray([[ null ], [ null, null, null ]]));
 console.log(getLengthOfMissingArray([[ 'a', 'a', 'a' ], [ 'a', 'a' ], [ 'a', 'a', 'a', 'a' ], [ 'a' ], [ 'a', 'a', 'a', 'a', 'a', 'a' ]]));
 console.log(getLengthOfMissingArray([]));
+console.log(getLengthOfMissingArray([ [ 5, 2, 9 ], [ 4, 5, 1, 1 ], [], [ 5, 6, 7, 8, 9 ]]));
