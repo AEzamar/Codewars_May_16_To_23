@@ -31,7 +31,7 @@ function getLengthOfMissingArray(arrayOfArrays) {
         if(sortedArr[i].length === 0) return missingLen = 0;
         if(sortedArr[i].length !== indexOne + 1) {
             console.log('Len', sortedArr[i].length, 'index:', indexOne + 1);
-            missingLen = indexOne + 1;
+            return missingLen = indexOne + 1;
         }
     }
     console.log(sortedArr);
