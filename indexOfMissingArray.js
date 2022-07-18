@@ -54,9 +54,11 @@ console.log(getLengthOfMissingArray([ [ 5, 2, 9 ], [ 4, 5, 1, 1 ], [], [ 5, 6, 7
 //console.log(getLengthOfMissingArray([[0, 2, 4, 3], [3, 0, 4, 2, 4], [0, 4, 1, 4, 0, 0], [1, 3, 1, 1, 3, 0, 1], [4, 0, 3, 3, 3, 0, 0, 0, 2]]));
 
 function getLengthOfMissingArray1(arrayOfArrays) {
+    if(arrayOfArrays.length === 0) return 0;
     const sortedArr = arrayOfArrays.sort((a, b) => a.length - b.length);
     let missingLen = 0;
     for(let i = 0; i < sortedArr.length; i++) {
+        if(sortedArr[i].length === 0) return 0;
         //console.log('Sub-Arr Len + 1', sortedArr[i].length + 1, 'Next Sub-Arr Len', sortedArr[i + 1].length);
         if(sortedArr[i].length + 1 !== sortedArr[i + 1].length) {
             return missingLen = sortedArr[i].length + 1;
