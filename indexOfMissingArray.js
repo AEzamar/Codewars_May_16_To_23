@@ -71,5 +71,6 @@ console.log(getLengthOfMissingArray1([[2, 0], [3, 2, 3], [0, 2, 2, 4], [4, 1, 1,
 console.log(getLengthOfMissingArray1([[0, 2, 4, 3], [3, 0, 4, 2, 4], [0, 4, 1, 4, 0, 0], [1, 3, 1, 1, 3, 0, 1], [4, 0, 3, 3, 3, 0, 0, 0, 2]]));
 
 function getLengthOfMissingArray2(arrayOfArrays) {
-    
+    const sortedArr = arrayOfArrays.sort((a, b) => a.length - b.length);
+    return sortedArr.find((ele, index, arr) => index + 1 !== ele.length);
 }
