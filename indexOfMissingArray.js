@@ -48,5 +48,24 @@ console.log(getLengthOfMissingArray([[ null ], [ null, null, null ]]));
 console.log(getLengthOfMissingArray([[ 'a', 'a', 'a' ], [ 'a', 'a' ], [ 'a', 'a', 'a', 'a' ], [ 'a' ], [ 'a', 'a', 'a', 'a', 'a', 'a' ]]));
 console.log(getLengthOfMissingArray([]));
 console.log(getLengthOfMissingArray([ [ 5, 2, 9 ], [ 4, 5, 1, 1 ], [], [ 5, 6, 7, 8, 9 ]])); */
-console.log(getLengthOfMissingArray([[2, 0], [3, 2, 3], [0, 2, 2, 4], [4, 1, 1, 1, 0], [4, 4, 2, 3, 0, 2, 2], [2, 0, 2, 2, 4, 4, 1, 4], [3, 1, 1, 2, 1, 4, 1, 3, 1]]));
-console.log(getLengthOfMissingArray([[0, 2, 4, 3], [3, 0, 4, 2, 4], [0, 4, 1, 4, 0, 0], [1, 3, 1, 1, 3, 0, 1], [4, 0, 3, 3, 3, 0, 0, 0, 2]]));
+
+//console.log(getLengthOfMissingArray([[2, 0], [3, 2, 3], [0, 2, 2, 4], [4, 1, 1, 1, 0], [4, 4, 2, 3, 0, 2, 2], [2, 0, 2, 2, 4, 4, 1, 4], [3, 1, 1, 2, 1, 4, 1, 3, 1]]));
+
+//console.log(getLengthOfMissingArray([[0, 2, 4, 3], [3, 0, 4, 2, 4], [0, 4, 1, 4, 0, 0], [1, 3, 1, 1, 3, 0, 1], [4, 0, 3, 3, 3, 0, 0, 0, 2]]));
+
+function getLengthOfMissingArray1(arrayOfArrays) {
+    const sortedArr = arrayOfArrays.sort((a, b) => a.length - b.length);
+    let missingLen = 0;
+    for(let i = 0; i < sortedArr.length; i++) {
+        //console.log('Sub-Arr Len + 1', sortedArr[i].length + 1, 'Next Sub-Arr Len', sortedArr[i + 1].length);
+        if(sortedArr[i].length + 1 !== sortedArr[i + 1].length) {
+            return missingLen = sortedArr[i].length + 1;
+        }
+    }
+    return missingLen;
+}
+
+console.log(getLengthOfMissingArray1([[2, 0], [3, 2, 3], [0, 2, 2, 4], [4, 1, 1, 1, 0], [4, 4, 2, 3, 0, 2, 2], [2, 0, 2, 2, 4, 4, 1, 4], [3, 1, 1, 2, 1, 4, 1, 3, 1]]));
+console.log(getLengthOfMissingArray1([[0, 2, 4, 3], [3, 0, 4, 2, 4], [0, 4, 1, 4, 0, 0], [1, 3, 1, 1, 3, 0, 1], [4, 0, 3, 3, 3, 0, 0, 0, 2]]));
+
+
