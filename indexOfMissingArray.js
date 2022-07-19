@@ -75,7 +75,9 @@ function getLengthOfMissingArray2(arrayOfArrays) {
     let missingLen = 0;
     //return sortedArr.find((ele, index) => index + 1 !== ele.length);
     return sortedArr.forEach((subArr, index, arr) => {
-        return missingLen = arr[index + 1].length !== arr[index].length + 1;
+        if(arr[index + 1].length !== arr[index].length + 1) {
+            return missingLen = arr[index + 1].length - 1;
+        }
     });
     return missingLen;
 }
