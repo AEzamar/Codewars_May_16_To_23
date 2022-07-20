@@ -71,15 +71,17 @@ function getLengthOfMissingArray1(arrayOfArrays) {
 //console.log(getLengthOfMissingArray1([[0, 2, 4, 3], [3, 0, 4, 2, 4], [0, 4, 1, 4, 0, 0], [1, 3, 1, 1, 3, 0, 1], [4, 0, 3, 3, 3, 0, 0, 0, 2]]));
 
 function getLengthOfMissingArray2(arrayOfArrays) {
+    if(arrayOfArrays.length === 0) return 0;
     const sortedArr = arrayOfArrays.sort((a, b) => a.length - b.length);
     for(let i = 0; i < sortedArr.length; i++) {
-        const consecutive = sortedArr[i].length + 1;
+        if(sortedArr[i].length === 0) return 0;
         //console.log('Arr len:', sortedArr[i + 1].length, 'Consecutive:', consecutive);
-        if(sortedArr[i + 1].length !== consecutive) {
-            return consecutive;
+        if(sortedArr[i + 1].length !== sortedArr[i].length + 1) {
+            return sortedArr[i].length + 1;
         }
     }
 }
 console.log(getLengthOfMissingArray2([[2, 0], [3, 2, 3], [0, 2, 2, 4], [4, 1, 1, 1, 0], [4, 4, 2, 3, 0, 2, 2], [2, 0, 2, 2, 4, 4, 1, 4], [3, 1, 1, 2, 1, 4, 1, 3, 1]]));
 console.log(getLengthOfMissingArray2([[0, 2, 4, 3], [3, 0, 4, 2, 4], [0, 4, 1, 4, 0, 0], [1, 3, 1, 1, 3, 0, 1], [4, 0, 3, 3, 3, 0, 0, 0, 2]]));
 console.log(getLengthOfMissingArray2([[1, 2], [2, 1, 3, 4], [0, 5, 1, 2, 8], [9, 0, 1, 2, 3, 6]]));
+console.log(getLengthOfMissingArray2([[0, 1], [1], [], [4, 1, 2, 3], [9, 7, 4, 1, 2], [7, 1, 2, 5, 5, 1]]))
